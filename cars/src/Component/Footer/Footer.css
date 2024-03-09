@@ -1,0 +1,73 @@
+:root {
+  --primaryColor: rgb(64, 64, 141);;
+  --secondaryColor:rgb(164, 198, 248);
+  --textColor:rgb(56, 54, 54);
+  --greyColor:rgb(218, 213, 213);
+  --whiteColor:rgb(255, 255, 255);
+  --blackcolor:rgb(28, 27, 27);
+}
+
+.footer {
+  padding-top: 2rem;
+}
+.footer .footerContainer .footerMenuDiv {
+  padding: 2rem;
+  background: var(--greyColor);
+  border-radius: 10px;
+  gap: 2rem;
+}
+.footer .footerContainer .footerMenuDiv .singleGrid .footerTitle {
+  display: block;
+  padding-bottom: 0.5rem;
+  font-size: 16px;
+  color: var(--blackcolor);
+  font-weight: 600;
+}
+.footer .footerContainer .footerMenuDiv .singleGrid .footerUl {
+  gap: 0.5rem;
+}
+.footer .footerContainer .footerMenuDiv .singleGrid .footerUl .footerli {
+  color: var(--secondaryColor);
+  font-weight: 400;
+}
+.footer .footerContainer .footerMenuDiv .singleGrid .footerUl .footerli:hover {
+  color: var(--blackcolor);
+  font-weight: 400;
+  cursor: pointer;
+  transform: translateX(5px);
+  transition: 0.3s;
+}
+.footer .footerContainer .lowerSection {
+  padding: 1rem;
+  text-align: center;
+  font-size: 14px;
+  font-weight: 600;
+}
+.footer .footerContainer .lowerSection p {
+  color: var(--textColor);
+}
+.footer .footerContainer .lowerSection blockquote {
+  color: var(--blackcolor);
+}
+
+@media screen and (min-width: 520px) {
+  .footer .footerContainer .footerMenuDiv {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .footer .footerContainer .footerMenuDiv .singleGrid .footerTitle {
+    font-size: 17px;
+  }
+  .footer .footerContainer .footerMenuDiv .singleGrid .footerUl {
+    gap: 5px;
+  }
+  .footer .footerContainer .lowerSection {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+}
+@media screen and (min-width: 940px) {
+  .footer .footerContainer .footerMenuDiv {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}/*# sourceMappingURL=Footer.css.map */

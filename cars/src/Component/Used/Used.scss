@@ -1,0 +1,158 @@
+:root{
+    --primaryColor: rgb(64, 64, 141);;
+    --secondaryColor:rgb(164, 198, 248);
+    --textColor:rgb(227, 227, 227);
+    --greyColor:rgb(232, 232, 232);
+    --whiteColor:rgb(232, 232, 232);
+    --blackcolor:rgb(28, 27, 27);
+}
+.auction{
+    .secContainer{
+        .secHeading{
+            justify-content: space-between;
+            padding: 3rem 0;
+
+            .navBtns{
+                gap: .5rem;
+            
+            .icon{
+                padding: 3px 5px;
+                background: var(--secondaryColor);
+                border-radius: 3px;
+                font-size: 30px;
+                cursor: pointer;
+
+                &:hover{
+                    background: var(--primaryColor);
+                    color: var(--textColor);
+                }
+            }
+        }
+    }
+    .carContainer{
+        gap: 2rem;
+
+        .singleCar{
+            transition: .3s ease-in-out;
+            text-align: left;
+            border-radius: 10px;
+            .imgDiv{
+                height:220px;
+                width: 100%;
+                overflow: hidden;
+                border: 5px solid transparent;
+
+                .img{
+                    height: 100%;
+                    width: 100%;
+                }
+            }
+            .carTitle{
+                color:var(--blackcolor);
+                font-size: 18px;
+                padding-top:10px;
+            }
+            .miles{
+                color: var(--blackcolor);
+                opacity: .7;
+                font-size: 14px;
+            }
+            .AWD{
+                padding: 1rem 0;
+                color: var(--blackcolor);
+                font-weight: 600;
+            }
+            .price_seller{
+                gap:1rem;
+                span{
+                    cursor: pointer;
+                    padding: .5rem 1rem;
+                    border-radius: 3px;
+                    font-weight: 600;
+                }
+                .price{
+                    background: var(--secondaryColor);
+                    color: var(--primaryColor);
+                    &:hover{
+                        background-color: var(--primaryColor);
+                        color: var(--blackcolor);
+                    }
+                }
+                .buy_btn{
+                    background: var(--secondaryColor);
+                    color:var(--whiteColor);
+                    &:hover{
+                        background: var(--primaryColor);
+                        color: var(--blackcolor);
+
+
+                    }
+                }
+            }
+            &:hover{
+                transform: translateY(-5px);
+                padding: 1rem;
+                background:whitesmoke;
+                 }
+
+                
+            }
+
+        }
+        .singleActive{
+            padding: 1rem;
+            background: var(--greyColor);
+            }
+        }
+    }
+  
+@media screen and (min-width:560px) {
+    .auction{
+        .secContainer{
+            .secHeading{
+                margin-top: 1rem;
+                .carTitle{
+                  font-size: 23px;
+                }
+                .navBtns{
+                    gap:.5rem;
+                    .icon{
+                        font-size: 40px;
+                    }
+                }
+            }
+            .carContainer{
+                grid-template-columns: repeat(2,1fr);
+                .singleCar{
+                    .carTitle{
+                        font-size: 18px;
+                    }
+                    .miles,.AWD{
+                        font-size: 16px;
+                    }
+                    .price_seller{
+                        font-weight: 600;
+                    }
+                }
+            }
+        }
+    }
+}
+@media screen and (min-width: 990px) {
+    .auction{
+        .secContainer{
+            .secHeading{
+                .carTitle{
+                  font-size:30px;
+                }
+                .navBtns{
+                    gap:.5rem;
+                }
+            }
+            .carContainer{
+                grid-template-columns: repeat(3,1fr);
+                
+            }
+        }
+    }
+}

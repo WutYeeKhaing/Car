@@ -1,0 +1,126 @@
+:root{
+    --primaryColor: rgb(64, 64, 141);;
+    --secondaryColor:rgb(164, 198, 248);
+    --textColor:rgb(88, 84, 84);
+    --greyColor:rgb(24, 24, 24);
+    --whiteColor:rgb(235, 235, 235);
+    --blackcolor:rgb(66, 64, 64);
+}
+.home{
+    padding-top:10rem;
+}
+.secContainer{
+    padding: 0 1.5rem;
+    text-align: center;
+    display: grid;
+    gap: 3rem;
+    .hometext{
+        .homeSpan{
+        color: var(--blackColor);
+        font-size: 20px;
+        font-weight: 600;
+        
+        }
+        .homeH{
+            color: var(--primaryColor);
+            font-size: 30px;
+            font-weight: 700;
+        }
+        .btns{
+            gap:2rem;
+            justify-content: center;
+        }
+        .btn{
+            padding: 10px 15px;
+            border-radius:3px;
+            font-weight:600;
+            margin-top:1rem;
+            &:hover{
+                background: var(--secondaryColor);
+                color:var(--primaryColor);
+            }
+
+        }
+        .btn:nth-child(1){
+            background-color:var(--primaryColor);  
+            color:var(--primaryColor); 
+            font-weight:600;  
+            &:hover{
+                background-color: var(--secondaryColor);
+                color:var(--primaryColor);
+            }
+    
+        }
+    }
+    .homeimg{
+        margin-top: 30px;
+        width: auto;
+    }
+}
+@media screen and(min-width:520px) {
+    .home{
+      .secContainer{
+        .hometext{
+            .homeSpan{
+                font-size: 20px;
+            }
+            .homeH{
+                font-size: 35px;
+            }
+            .btns{
+                .btn{
+                    font-size: 14px;
+                }
+            }
+        }
+    }
+    .homeimg{
+        max-width:75%;
+        transition: .3s ease;
+    }
+  }
+}
+@media screen and(min-width:770px) {
+    .home{
+        padding-top: 10rem;
+        .secContainer{
+            gap:2.5rem;
+          .hometext{
+              .homeSpan{
+                  font-size: 22px;
+              }
+              .homeH{
+                  font-size: 40px;
+              }
+              .btns{
+                margin-top: 1rem;
+              }
+          }
+      }
+    }
+}
+@media screen and(min-width:996px) {
+    .home{
+        padding-top: 12rem;
+        .secContainer{
+            gap:3rem;
+          .hometext{
+              .homeSpan{
+                  font-size: 28px;
+              }
+              .homeH{
+                  font-size: 53px;
+              }
+              .btns{
+                .btn{
+                    font-size: 18px;
+                    padding: 1rem 2rem;
+                }
+              }
+          }
+        }
+        .homeimg{
+            width: 50%;
+        }
+    }
+}

@@ -1,0 +1,97 @@
+:root{
+    --primaryColor: rgb(64, 64, 141);;
+    --secondaryColor:rgb(164, 198, 248);
+    --textColor:rgb(164, 163, 163);
+    --greyColor:rgb(218, 213, 213);
+    --whiteColor:rgb(232, 232, 232);
+    --blackcolor:rgb(28, 27, 27);
+}
+
+.search{
+ padding: 3rem 0;
+ .title{
+    color: var(--blackcolor);
+    font-size: 24px;
+    padding: 1rem 0;
+    text-align: center;
+    font-weight: 700;
+    line-height: 1.7rem;
+ }
+ .searchDiv{
+    gap:.5rem;
+    grid-template-columns: repeat(2,1fr);
+    align-items: center;
+
+    input{
+        border-radius: 10px;
+        outline: none;
+        border: 1px solid var(--secondaryColor);
+        text-align: center;
+        color: var(--textColor);
+        padding: 5px 10px;
+        width: 100%;
+        &:focus{
+            border: none;
+            border: 1px solid var(--primaryColor);
+        }
+    }
+    .btn{
+        justify-content: center;
+        width: 100%;
+        align-items: center;
+        gap:.3rem;
+
+        .icon{
+            font-size: 20px;
+        }
+    }
+}
+}
+@media screen and (min-width:520px) {
+    .search{
+        .title{
+            font-size: 25px;
+            padding: 2rem 0;
+        }
+        .searchDiv{
+            input{
+                padding: 10px;
+                font-weight: 600;
+                color: var(--secondaryColor);
+                border-radius: 3px;
+            }
+        }
+        .btn{
+            justify-content: center;
+            width: 100%;
+            align-items: center;
+            gap:.3rem;
+            font-size: 16px;
+            .icon{
+                font-size: 16px;
+            }
+        }
+     }
+ }
+@media screen and (min-width: 770px) {
+    .search{
+        .title{
+            font-size: 30px;
+            padding: 2rem 0;
+        }
+        .searchDiv{
+           grid-template-columns: repeat(3,1fr);
+        }
+     }
+}
+@media screen and (min-width:990px) {
+    .search{
+        width:80%;
+        margin: auto;
+        border-radius: 5px;
+        
+        .searchDiv{
+           grid-template-columns: repeat(5,1fr);
+        }
+     }
+}

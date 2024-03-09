@@ -1,0 +1,123 @@
+@import url("https://fonts.googleapis.com/css2?family=Titillium+Web:wght@200;600;700&display=swap");
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  transition: 0.2s ease-in-out;
+  font-family: "Titillium Web", sans-serif, Arial;
+}
+
+:root {
+  --primaryColor: rgb(64, 64, 141);
+  --secondaryColor:rgb(164, 198, 248);
+  --textColor:rgb(97, 97, 97);
+  --greyColor:rgb(218, 213, 213);
+  --whitecolor:white;
+  --blackcolor:rgb(52, 51, 51);
+}
+
+li {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+  cursor: pointer;
+}
+
+p {
+  color: var(--primaryColor);
+  line-height: 1.4rem;
+}
+
+.flex {
+  display: flex;
+  align-items: center;
+}
+
+.grid {
+  display: grid;
+  align-items: center;
+}
+
+.btn {
+  border: none;
+  outline: none;
+  background: var(--whitecolor);
+  color: var(--blackcolor);
+  cursor: pointer;
+  font-weight: 400;
+}
+
+.primaryBtn {
+  background-color: var(--primaryColor);
+  padding: 10px 15px;
+  border-radius: 10px;
+  font-weight: 600;
+  color: var(--whitecolor);
+  font-size: 12px;
+}
+.primaryBtn:hover {
+  background: var(--secondaryColor);
+  color: var(--blackcolor);
+  border: none;
+}
+
+.container {
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
+}
+
+.section {
+  padding: 4rem 0.2rem;
+}
+
+img {
+  width: 100%;
+  height: auto;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+
+.icon {
+  font-size: 25px;
+  cursor: pointer;
+}
+
+.secTitle {
+  color: var(--blackColor);
+  font-size: 20px;
+}
+
+@media screen and (min-width: 520px) {
+  .container {
+    width: 90%;
+    margin: auto;
+  }
+  .section {
+    padding: 6rem 0.4rem;
+  }
+}
+@media screen and (min-width: 1024px) {
+  .container {
+    width: 75%;
+  }
+}
+::-moz-selection {
+  background: var(--primaryColor);
+  color: var(--whitecolor);
+}
+::selection {
+  background: var(--primaryColor);
+  color: var(--whitecolor);
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+  background-color: var(--greyColor);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--secondaryColor);
+  border-radius: 10px;
+}/*# sourceMappingURL=App.css.map */
