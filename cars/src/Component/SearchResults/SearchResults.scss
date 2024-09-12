@@ -1,0 +1,49 @@
+.searchResults {
+    padding: 20px;
+    background-color: #f9f9f9;
+  }
+  
+  .searchResults h3 {
+    margin-bottom: 20px;
+    font-size: 24px;
+    color: #333;
+  }
+  
+  .searchResults ul {
+    list-style-type: none;
+    padding: 0;
+  }
+  
+  .searchResults li {
+    display: flex;
+    align-items: center;
+    border-bottom: 1px solid #ddd;
+    padding: 10px 0;
+  }
+  
+  .resultItem {
+    display: flex;
+    align-items: center;
+    width: 100%;
+  }
+  
+  .resultImage {
+    width: 100px;
+    height: auto;
+    border-radius: 8px;
+    margin-right: 15px;
+  }
+  
+  .resultDetails {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .resultDetails p {
+    margin: 5px 0;
+  }
+  
+  .resultDetails strong {
+    color: #555;
+  }
+  

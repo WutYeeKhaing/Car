@@ -1,10 +1,10 @@
 :root {
-  --primaryColor: rgb(64, 64, 141);;
+  --primaryColor: rgb(64, 64, 141);
   --secondaryColor:rgb(164, 198, 248);
-  --textColor:rgb(56, 54, 54);
+  --textColor:rgb(38, 38, 38);
   --greyColor:rgb(218, 213, 213);
-  --whiteColor:rgb(255, 255, 255);
-  --blackcolor:rgb(28, 27, 27);
+  --whitecolor:white;
+  --blackcolor:rgb(52, 51, 51);
 }
 
 .footer {
@@ -44,7 +44,7 @@
   font-weight: 600;
 }
 .footer .footerContainer .lowerSection p {
-  color: var(--textColor);
+  color: var(--greyColor);
 }
 .footer .footerContainer .lowerSection blockquote {
   color: var(--blackcolor);

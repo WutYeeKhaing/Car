@@ -1,13 +1,13 @@
-:root{
-    --primaryColor: rgb(64, 64, 141);;
+:root {
+    --primaryColor: rgb(64, 64, 141);
     --secondaryColor:rgb(164, 198, 248);
-    --textColor:rgb(88, 84, 84);
-    --greyColor:rgb(24, 24, 24);
-    --whiteColor:rgb(235, 235, 235);
-    --blackcolor:rgb(66, 64, 64);
-}
+    --textColor:rgb(38, 38, 38);
+    --greyColor:rgb(218, 213, 213);
+    --whitecolor:white;
+    --blackcolor:rgb(52, 51, 51);
+  }
 .home{
-    padding-top:10rem;
+    padding-top: 8rem;
 }
 .secContainer{
     padding: 0 1.5rem;
@@ -42,7 +42,7 @@
 
         }
         .btn:nth-child(1){
-            background-color:var(--primaryColor);  
+            background-color:var(-Color);  
             color:var(--primaryColor); 
             font-weight:600;  
             &:hover{
@@ -124,3 +124,5 @@
         }
     }
 }
+
+ 

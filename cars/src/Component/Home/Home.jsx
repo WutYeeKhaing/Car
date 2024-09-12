@@ -2,6 +2,7 @@ import React,{useEffect} from 'react'
 import './Home.css'
 import cut from '../../Assets/toyota.png'
 import Aos from 'aos'
+import { useNavigate } from 'react-router-dom';
 import 'aos/dist/aos.css'
 const Home = () => {
   useEffect(()=>{
@@ -11,6 +12,15 @@ const Home = () => {
     }
    )
   },[])
+  const navigate = useNavigate();
+
+  const handleTestDrive = () => {
+    navigate('/appointment');
+  };
+
+  const handleMoreDetails = (carId) => {
+    navigate(`/car-details/${carId}`); // Pass the carId dynamically
+  };
   return (
     <div className='home'>
       <div className="secContainer">
@@ -22,8 +32,12 @@ const Home = () => {
           Toyota YARIS 2023
           </h1>
           <div className='btns flex'>
-            <button data-aos='fade-right' className='btn'>More Details</button>
-            <button data-aos='fade-left'className='btn primaryBtn'>Test Drive</button>
+          <button data-aos='fade-right' className='btn' onClick={() => handleMoreDetails(1)}>
+        More Details
+      </button>
+      <button data-aos='fade-left' className='btn primaryBtn' onClick={handleTestDrive}>
+        Test Drive
+      </button>
           </div>
           <div data-aos='fade-down-right' className='homeimg'>
             <img src={cut} alt='home'/>

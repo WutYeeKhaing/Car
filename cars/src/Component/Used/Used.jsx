@@ -1,173 +1,105 @@
-import React,{useEffect} from 'react'
-import './Used.css'
-import {BsArrowLeftShort} from 'react-icons/bs'
-import {BsArrowRightShort} from 'react-icons/bs'
-import cut from '../../Assets/used.jpg'
-import cut1 from '../../Assets/used1.jpg'
-import  cut2 from '../../Assets/used2.jpg'
-import cut3 from '../../Assets/Toyota.jpg'
-import cut4 from '../../Assets/used3.jpg'
-import cut5 from '../../Assets/used4.jpg'
+import React, { useState, useRef } from 'react';
+import './Used.css';
+import { BsArrowLeftShort, BsArrowRightShort } from 'react-icons/bs';
+import cut from '../../Assets/used.jpg';
+import cut1 from '../../Assets/used1.jpg';
+import cut2 from '../../Assets/used2.jpg';
+import cut3 from '../../Assets/Toyota.jpg';
+import cut4 from '../../Assets/used3.jpg';
+import cut5 from '../../Assets/used4.jpg';
 
-import Aos from 'aos'
-import 'aos/dist/aos.css'
-const Used= () => {
-  useEffect(()=>{
-    Aos.init(
-     {
-       duration:3000
-     }
-    )
-   },[])
+const carData = [
+  {
+    imgSrc: cut,
+    title: 'Used Mercedes-Benz G63',
+    miles: '14563 Miles',
+    awd: 'AWD 4-Cylinder Turbo',
+    price: '$57,890',
+  },
+  {
+    imgSrc: cut1,
+    title: 'Used Porsche 911',
+    miles: '14563 Miles',
+    awd: 'AWD 4-Cylinder Turbo',
+    price: '$57,890',
+  },
+  {
+    imgSrc: cut2,
+    title: 'Used Nissan white',
+    miles: '1463 Miles',
+    price: '$99,090',
+    awd: 'AWD 4-Cylinder Turbo',
+  },
+  {
+    imgSrc: cut3,
+    title: 'Used Toyota Truck',
+    miles: '14563 Miles',
+    awd: 'AWD 4-Cylinder Turbo',
+    price: '$37,000',
+  },
+  {
+    imgSrc: cut4,
+    title: 'Used Sport Car',
+    miles: '80000 Miles',
+    awd: 'AWD 4-Cylinder Turbo',
+    price: '$38,000',
+  },
+  {
+    imgSrc: cut5,
+    title: 'Used Range Rover',
+    miles: '12000 Miles',
+    price: '$60,000',
+    awd: 'AWD 4-Cylinder Turbo',
+  },
+];
+
+const Used = () => {
+  const [startIndex, setStartIndex] = useState(0);
+  const visibleItems = 3; // Number of visible items
+  const containerRef = useRef(null);
+
+  const handlePrev = () => {
+    if (startIndex > 0) {
+      setStartIndex(startIndex - 1);
+    }
+  };
+
+  const handleNext = () => {
+    if (startIndex < carData.length - visibleItems) {
+      setStartIndex(startIndex + 1);
+    }
+  };
+
   return (
     <div className='auction section'>
       <div className='secContainer container'>
-      <div data-aos='fade-down' className='secHeading flex'>
-      <h3 className='secTitle'>
-        Popular In 2@24
-      </h3>
-      <div className='navBtns flex'>
-      <BsArrowLeftShort  className='icon leftIcon'/>
-      <BsArrowRightShort  className='icon rightIcon'/>
-      </div>
-      </div>
-      <div className='carContainer grid'>
-        <div data-aos='fade-right' className='singleCar grid singleActive'>
-          <div className='imgDiv'>
-          <img src={cut} alt="Car"/>
-           </div>
-        <h5 className='carTitle'>
-          Used Mercedes-Benz G63
-        </h5>
-        <span className='miles'>
-          14563 Miles
-        </span>
-        <span className='AWD'>
-          AWD 4-Cylinder Turbo
-        </span>
-        <div className='price_seller flex'>
-          <span className='price'>
-            $57,890
-          </span>
-          <span className='buy_btn'>
-            Buy Now
-          </span>
+        <div className='secHeading flex'>
+          <h3 className='secTitle'>Popular In 2024</h3>
+          <div className='navBtns flex'>
+            <BsArrowLeftShort className='icon leftIcon' onClick={handlePrev} />
+            <BsArrowRightShort className='icon rightIcon' onClick={handleNext} />
           </div>
         </div>
-        <div data-aos='fade-right' className='singleCar grid'>
-          <div className='imgDiv'>
-          <img src={cut1} alt="Car"/>
-        </div>
-        <h5 className='carTitle'>
-          Used Porsche 911
-        </h5>
-        <span className='miles'>
-          14563 Miles
-        </span>
-        <span className='AWD'>
-          AWD 4-Cylinder Turbo
-        </span>
-        <div className='price_seller flex'>
-          <span className='price'>
-            $57,890
-          </span>
-          <span className='buy_btn'>
-            Buy Now
-          </span>
-          </div>
-        </div>
-        <div data-aos='fade-right' className='singleCar grid singleActive'>
-          <div className='imgDiv'>
-          <img src={cut2} alt="Car "/>
-        </div>
-        <h5 className='carTitle'>
-          Used FortGT 2017 white
-        </h5>
-        <span className='miles'>
-          14563 Miles
-        </span>
-        <span className='AWD'>
-          AWD 4-Cylinder Turbo
-        </span>
-        <div className='price_seller flex'>
-          <span className='price'>
-            $57,890
-          </span>
-          <span className='buy_btn'>
-           Buy Now
-          </span>
-          </div>
-        </div>
-        <div data-aos='fade-left' className='singleCar grid'>
-          <div className='imgDiv'>
-          <img src={cut3} alt="Car "/>
-        </div>
-        <h5 className='carTitle'>
-          Used FortGT 2017 white
-        </h5>
-        <span className='miles'>
-          14563 Miles
-        </span>
-        <span className='AWD'>
-          AWD 4-Cylinder Turbo
-        </span>
-        <div className='price_seller flex'>
-          <span className='price'>
-            $57,890
-          </span>
-          <span className='buy_btn'>
-           Buy Now
-          </span>
-          </div>
-        </div>
-        <div data-aos='fade-left' className='singleCar grid singleActive'>
-          <div className='imgDiv'>
-          <img src={cut4} alt="Car "/>
-        </div>
-        <h5 className='carTitle'>
-          Used FortGT 2017 white
-        </h5>
-        <span className='miles'>
-          14563 Miles
-        </span>
-        <span className='AWD'>
-          AWD 4-Cylinder Turbo
-        </span>
-        <div className='price_seller flex'>
-          <span className='price'>
-            $57,890
-          </span>
-          <span className='buy_btn'>
-           Buy Now
-          </span>
-          </div>
-        </div>
-        <div  data-aos='fade-left' className='singleCar grid'>
-          <div className='imgDiv'>
-          <img src={cut5} alt="Car "/>
-        </div>
-        <h5 className='carTitle'>
-          Used FortGT 2017 white
-        </h5>
-        <span className='miles'>
-          14563 Miles
-        </span>
-        <span className='AWD'>
-          AWD 4-Cylinder Turbo
-        </span>
-        <div className='price_seller flex'>
-          <span className='price'>
-            $57,890
-          </span>
-          <span className='buy_btn'>
-           Buy Now
-          </span>
-          </div>
+        <div className='carContainer' ref={containerRef}>
+          {carData.slice(startIndex, startIndex + visibleItems).map((car, index) => (
+            <div key={index} className='singleCar'>
+              <div className='imgDiv'>
+                <img src={car.imgSrc} alt={`Car ${index}`} />
+              </div>
+              <h5 className='carTitle'>{car.title}</h5>
+             
+              <span className='AWD'>{car.awd}</span> 
+              <span className='miles'>{car.miles}</span>
+              <div className='price_seller flex'>
+                <span className='price'>{car.price}</span>
+                <span className='buy_btn'>Connect Now</span>
+              </div>
+            </div>
+          ))}
         </div>
       </div>
     </div>
-    </div>
-  )
-}
+  );
+};
 
-export default Used
+export default Used;

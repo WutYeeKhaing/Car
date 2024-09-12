@@ -1,19 +1,19 @@
 :root {
   --primaryColor: rgb(64, 64, 141);
-  --secondaryColor:rgb(164, 198, 248);
-  --textColor:rgb(164, 163, 163);
-  --greyColor:rgb(218, 213, 213);
-  --whiteColor:rgb(232, 232, 232);
-  --blackcolor:rgb(28, 27, 27);
+  --secondaryColor: rgb(164, 198, 248);
+  --textColor: rgb(38, 38, 38);
+  --greyColor: rgb(218, 213, 213);
+  --whitecolor: white;
+  --blackcolor: rgb(52, 51, 51);
 }
 
 .search {
-  padding: 3rem 0;
+  padding: 8rem 0;
 }
 .search .title {
   color: var(--blackcolor);
   font-size: 24px;
-  padding: 1rem 0;
+  padding: 0rem 0;
   text-align: center;
   font-weight: 700;
   line-height: 1.7rem;
@@ -22,8 +22,10 @@
   gap: 0.5rem;
   grid-template-columns: repeat(2, 1fr);
   align-items: center;
+  /* Input and Select styling */
 }
-.search .searchDiv input {
+.search .searchDiv input,
+.search .searchDiv select {
   border-radius: 10px;
   outline: none;
   border: 1px solid var(--secondaryColor);
@@ -32,8 +34,10 @@
   padding: 5px 10px;
   width: 100%;
 }
-.search .searchDiv input:focus {
+.search .searchDiv input:focus,
+.search .searchDiv select:focus {
   border: none;
+  color: var(--textColor);
   border: 1px solid var(--primaryColor);
 }
 .search .searchDiv .btn {
@@ -51,10 +55,10 @@
     font-size: 25px;
     padding: 2rem 0;
   }
-  .search .searchDiv input {
+  .search .searchDiv input,
+  .search .searchDiv select {
     padding: 10px;
     font-weight: 600;
-    color: var(--secondaryColor);
     border-radius: 3px;
   }
   .search .btn {

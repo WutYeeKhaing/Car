@@ -1,4 +1,4 @@
-import React,{useState} from 'react'
+import React,{useEffect, useState} from 'react'
 import './Navbar.css'
 import real from '../../Assets/realo.png'
 import { IoIosCloseCircle } from "react-icons/io";
@@ -18,13 +18,19 @@ const Navbar = () => {
      if(window.scrollY >= 20){
       setHeader('header addBg')
      }
-  }
-  window.addEventListener('scroll',addBg)
+  };
+  useEffect(()=>{
+    window.addEventListener('scroll',addBg);
+    return ()=>{
+      window.removeEventListener('scroll',addBg);
+    }
+  })
+   
   return (
     <div className={header}>
     <div className="logodiv">
         <img src={real} alt='logo' className='logo'/>
-        <p className='p'>BEOWNSOON...</p>
+        <p className='p'>BeOwn</p>
     </div>
     <div className={navbar}>
       <ul className='menu'>
@@ -41,7 +47,7 @@ const Navbar = () => {
             <Link to='/auction' className='link'>Auctions</Link>
         </li>
         <li onClick={removeNavbar} className='listitem'>
-            <Link to ='seller' className='link'>Top Sellers</Link>
+            <Link to ='seller' className='link'>Recommended</Link>
         </li>
       </ul>
       <IoIosCloseCircle className="icon closeIcon" onClick={removeNavbar}/>

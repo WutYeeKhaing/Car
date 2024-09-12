@@ -1,30 +1,36 @@
-import React,{useEffect} from 'react'
+import React, { useEffect } from 'react'
 import './Seller.css'
-import  title from'../../Assets/Title.png'
+import title from '../../Assets/Title.png'
 import logo1 from '../../Assets/logo1.png'
 import logo2 from '../../Assets/logo.png'
 import logo3 from '../../Assets/logo3.png'
 import Aos from 'aos'
 import 'aos/dist/aos.css'
-const Seller= () => {
-  useEffect(()=>{
+import Review from '../Review/Review'
+const Seller = () => {
+  useEffect(() => {
     Aos.init(
-     {
-       duration:3000
-     }
+      {
+        duration: 3000
+      }
     )
-   },[])
+  }, [])
   return (
     <div className='seller section'>
+
       <div className="secContainer">
-        <div  data-aos='fade-up' className='secHeading grid'>
+      
+        <div data-aos='fade-up' className='secHeading grid'>
           <h3 className='title'>
-            Get a connection with TopSellers
+            Discover Top-Tier Vehicles from Leading Brands
           </h3>
-          <p>Eldar Holds The Guinnes World Record For Being The Greatest salemans in the world </p>
+          <p>
+            Explore our collection of top-quality cars from renowned brands that continue to set the benchmark in the automotive industry. Whether you're looking for the latest models or time-tested favorites, our diverse selection ensures you'll find a vehicle that meets your highest standards and driving needs.
+          </p>
+
         </div>
         <div className='sellerContainer grid'>
-          <div  data-aos='fade-right' className='singleSeller flex'>
+          <div data-aos='fade-right' className='singleSeller flex'>
             <div className='imgC flex'>
               <img src={title} alt='title' />
             </div>
@@ -36,7 +42,7 @@ const Seller= () => {
             </span>
           </div>
 
-          <div  data-aos='fade-right' className='singleSeller flex'>
+          <div data-aos='fade-right' className='singleSeller flex'>
             <div className='imgC flex'>
               <img src={logo1} alt='title' />
             </div>
@@ -71,7 +77,9 @@ const Seller= () => {
             </span>
           </div>
         </div>
+
       </div>
+      <Review />
     </div>
   )
 }

@@ -1,103 +1,83 @@
-import React,{useEffect} from 'react'
-import './Trending.css'
-import {BsArrowLeftShort} from 'react-icons/bs'
-import {BsArrowRightShort} from 'react-icons/bs'
-import Mer from '../../Assets/Mercedes.jpg'
-import Fort from '../../Assets/Fort.jpg'
-import Por from '../../Assets/cut3.jpg'
-import Aos from 'aos'
-import 'aos/dist/aos.css'
+import React, { useState, useRef } from 'react';
+import './Trending.css';
+import { BsArrowLeftShort, BsArrowRightShort } from 'react-icons/bs';
+import Mer from '../../Assets/Mercedes.jpg';
+import Fort from '../../Assets/Fort.jpg';
+import Por from '../../Assets/cut3.jpg';
+import { Link } from 'react-router-dom';
+const carData = [
+  {
+    imgSrc: Mer,
+    title: 'Used Mercedes-Benz G63',
+    miles: '14563 Miles',
+    awd: 'AWD 4-Cylinder Turbo',
+    price: '$57,890',
+  },
+  {
+    imgSrc: Por,
+    title: 'Used Ferrari Silver',
+    miles: '14563 Miles',
+    awd: 'AWD 4-Cylinder Turbo',
+    price: '$57,890',
+  },
+  {
+    imgSrc: Fort,
+    title: 'Used FortGT 2017 white',
+    miles: '14563 Miles',
+    awd: 'AWD 4-Cylinder Turbo',
+    price: '$57,890',
+  },
+];
+
 const Trending = () => {
-  useEffect(()=>{
-    Aos.init(
-     {
-       duration:3000
-     }
-    )
-   },[])
+  const [startIndex, setStartIndex] = useState(0);
+  const visibleItems = 1; // Number of visible items at a time
+  const containerRef = useRef(null);
+
+  const handlePrev = () => {
+    if (startIndex > 0) {
+      setStartIndex(startIndex - 1);
+    }
+  };
+
+  const handleNext = () => {
+    if (startIndex < carData.length - visibleItems) {
+      setStartIndex(startIndex + 1);
+    }
+  };
+
   return (
     <div className='trending section'>
       <div className='secContainer container'>
-      <div  data-aos='fade-up' className='secHeading flex'>
-      <h3 className='secTitle'>
-        Trending Near You
-      </h3>
-      <div className='navBtns flex'>
-      <BsArrowLeftShort  className='icon leftIcon'/>
-      <BsArrowRightShort  className='icon rightIcon'/>
-      </div>
-      </div>
-      <div className='carContainer grid'>
-        <div  data-aos='fade-up' data-aos-duration='2000'className='singleCar grid'>
-          <div className='imgDiv'>
-          <img src={Mer} alt="Car"/>
-           </div>
-        <h5 className='carTitle'>
-          Used Mercedes-Benz G63
-        </h5>
-        <span className='miles'>
-          14563 Miles
-        </span>
-        <span className='AWD'>
-          AWD 4-Cylinder Turbo
-        </span>
-        <div className='price_seller flex'>
-          <span className='price'>
-            $57,890
-          </span>
-          <span className='seller'>
-            Best Seller
-          </span>
+        <div className='secHeading flex'>
+          <h3 className='secTitle'>Trending Near You</h3>
+          <div className='navBtns flex'>
+            <BsArrowLeftShort className='icon leftIcon' onClick={handlePrev} />
+            <BsArrowRightShort className='icon rightIcon' onClick={handleNext} />
           </div>
         </div>
-        <div  data-aos='fade-up' data-aos-duration='2500' className='singleCar grid'>
-          <div className='imgDiv'>
-          <img src={Por} alt="Car"/>
-        </div>
-        <h5 className='carTitle'>
-          Used Ferrari Silver
-        </h5>
-        <span className='miles'>
-          14563 Miles
-        </span>
-        <span className='AWD'>
-          AWD 4-Cylinder Turbo
-        </span>
-        <div className='price_seller flex'>
-          <span className='price'>
-            $57,890
-          </span>
-          <span className='seller'>
-            Best Seller
-          </span>
-          </div>
-        </div>
-        <div data-aos='fade-up' data-aos-duration='3000'  className='singleCar grid'>
-          <div className='imgDiv'>
-          <img src={Fort} alt="Car"/>
-        </div>
-        <h5 className='carTitle'>
-          Used FortGT 2017 white
-        </h5>
-        <span className='miles'>
-          14563 Miles
-        </span>
-        <span className='AWD'>
-          AWD 4-Cylinder Turbo
-        </span>
-        <div className='price_seller flex'>
-          <span className='price'>
-            $57,890
-          </span>
-          <span className='seller'>
-            Best Seller
-          </span>
-          </div>
-        </div>
-      </div>
-    </div>
-    </div>
-  )
-}
+        <div className='carContainer' ref={containerRef}>
+          {carData.slice(startIndex, startIndex + visibleItems).map((car, index) => (
+            <div key={index} className='singleCar'>
+              <div className='imgDiv'>
+                <img src={car.imgSrc} alt={`Car ${index}`} />
+              </div>
+              <h5 className='carTitle'>{car.title}</h5>
+              <span className='AWD'>{car.awd}</span>
+              <span className='miles'>{car.miles}</span>
 
-export default Trending
+              <div className='price_seller flex'>
+                <span className='price'>{car.price}</span>
+                <Link to="/appointment" className='buy_btn'>
+                  Connect Now
+                </Link>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+  );
+};
+
+export default Trending;

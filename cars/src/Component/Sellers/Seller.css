@@ -10,17 +10,11 @@
 .seller {
   background: var(--greyColor);
 }
-.seller .secContainer {
-  margin: 1.5rem inherit;
-}
-.title{
-  margin-top: 50px;
-}
 .seller .secContainer .sellerContainer {
   cursor: pointer;
 }
 .seller .secContainer .sellerContainer .singleSeller {
-  padding: 1rem;
+  padding: 0.5rem;
   border-radius: 5px;
   gap: 1rem;
   background: rgb(241, 243, 237);

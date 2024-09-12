@@ -1,19 +1,18 @@
-:root{
-    --primaryColor: rgb(64, 64, 141);;
+:root {
+    --primaryColor: rgb(64, 64, 141);
     --secondaryColor:rgb(164, 198, 248);
-    --textColor:rgb(138, 137, 137);
+    --textColor:rgb(38, 38, 38);
     --greyColor:rgb(218, 213, 213);
     --whitecolor:white;
-    --blackcolor:rgb(66, 64, 64);
-}
-
+    --blackcolor:rgb(52, 51, 51);
+  }
 .header{
     position: fixed;
     display: flex;
     align-items: center;
     justify-content: space-between;
-    width: 90%;
-    padding: 1.5rem;
+    width: 100%;
+    padding: 0 .5rem;
     box-shadow: 0 3px 4px rgb(194, 196, 223); 
     z-index: 1000;
     font-weight:600;
@@ -30,9 +29,7 @@
             font-weight: 600;
             margin: 0;
         }
-.navbar {
-    display: none;
-}   
+
 
 @media screen and (max-width:760px) {
     .navbar{
@@ -45,9 +42,10 @@
         transform: translate(-50%);
         border-radius: 20px;
         text-align: center;
-        padding: 1.5rem;
+        padding: .5rem;
         transition: .3s ease;
         z-index: 2000;
+        
         .closeIcon{
             position: absolute;
             bottom: -15px;
@@ -70,7 +68,7 @@
             align-items: center;
             flex-direction: column;
             .listitem{
-                padding: 1rem 1rem;
+                padding: .5rem 1rem;
                 border-radius: 10px;
             
             a{

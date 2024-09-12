@@ -1,164 +1,176 @@
-:root{
-    --primaryColor: rgb(64, 64, 141);;
-    --secondaryColor:rgb(164, 198, 248);
-    --textColor:rgb(56, 54, 54);
-    --greyColor:rgb(218, 213, 213);
-    --whiteColor:rgb(255, 255, 255);
-    --blackcolor:rgb(28, 27, 27);
-}
-.auction{
-    .secContainer{
-        .secHeading{
+:root {
+    --primaryColor: rgb(64, 64, 141);
+    --secondaryColor: rgb(164, 198, 248);
+    --textColor: rgb(38, 38, 38);
+    --greyColor: rgb(218, 213, 213);
+    --whitecolor: white;
+    --blackcolor: rgb(52, 51, 51);
+  }
+  
+  .auction {
+    .secContainer {
+      
+
+      .secHeading {
+        justify-content: space-between;
+        padding: 0rem 0;
+        
+        .navBtns {
+          gap: .5rem;
+  
+          .icon {
+            padding: 8px;
+            background: var(--secondaryColor);
+            border-radius: 3px;
+            font-size: 30px;
+            cursor: pointer;
+  
+            &:hover {
+              background: var(--primaryColor);
+              color: var(--textColor);
+            }
+          }
+        }
+      }
+  
+      .carContainer {
+        display: grid;
+        gap: 1.5rem;
+        grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+        align-items: stretch;
+
+        .singleCar {
+            display: flex;
+            flex-direction: column;
             justify-content: space-between;
-            padding: 1rem 0;
-
-            .navBtns{
-                gap:.5rem;
-            
-            .icon{
-                padding: 3px 5px;
-                background: var(--secondaryColor);
-                border-radius: 3px;
-                font-size: 30px;
-                cursor: pointer;
-
-                &:hover{
-                    background: var(--primaryColor);
-                    color: var(--textColor);
-                }
-            }
-        }
-    }
-    .carContainer{
-        gap: 2rem;
-
-        .singleCar{
-            transition: .3s ease-in-out;
+            transition: transform 0.3s ease, box-shadow 0.2s ease;
+            border-radius: 8px;
+            background: var(--whiteColor);
+            overflow: hidden;
             text-align: left;
-            border-radius: 10px;
-            .imgDiv{
-                height:200px;
-                width: 100%;
-                overflow: hidden;
-                border: 5px solid transparent;
-
-                .img{
-                    height: 100%;
-                    width: 100%;
-                }
+            min-height: 360px;
+  
+          .imgDiv {
+            height: 200px;
+            width: 100%;
+            overflow: hidden;
+            border: 5px solid transparent;
+  
+            img {
+              height: 100%;
+              width: 100%;
+              object-fit: cover;
             }
-            .carTitle{
-                color:var(--blackcolor);
-                font-size: 18px;
-                padding-top:10px;
+          }
+  
+          .carTitle {
+            color: var(--blackcolor);
+            font-size: 18px;
+            padding-top: 10px;
+          }
+  
+          .miles {
+            color: var(--blackcolor);
+            opacity: .7;
+            font-size: 14px;
+          }
+  
+          .AWD {
+            padding: 1rem 0;
+            color: var(--blackcolor);
+            font-weight: 600;
+          }
+  
+          .price_seller {
+            gap: 1rem;
+            display: flex;
+            align-items: center;
+  
+            span {
+              cursor: pointer;
+              padding: .5rem .5rem;
+              border-radius: 3px;
+              font-weight: 600;
             }
-            .miles{
-                color: var(--blackcolor);
-                opacity: .7;
-                font-size: 14px;
+  
+            .price {
+              background: var(--primaryColor);
+              color: var(--secondaryColor);
+  
+              &:hover {
+                background-color: var(--primaryColor);
+                color: var(--whitecolor);
+              }
             }
-            .AWD{
-                padding: 1rem 0;
-                color: var(--blackcolor);
-                font-weight: 600;
-            }
-            .price_seller{
-                gap: 1rem;
-                span{
-                    cursor: pointer;
-                    padding: .5rem .5rem;
-                    border-radius: 3px;
-                    font-weight: 600;
-                }
-                .price{
-                    background: var(--primaryColor);
-                    color: var(--secondaryColor);
-                    &:hover{
-                        background-color: var(--primaryColor);
-                        color: var(--whitecolor);
-                    }
-                }
-                .buy_btn{
-                    background: var(--secondaryColor);
-                    color:var(--primaryColor);
-                    &:hover{
-                        background: var(--secondaryColor);
-                        color: var(--blackcolor);
-
-
-                    }
-                }
-            }
-            &:hover{
-                transform: translateY(-6px);
-                padding: .2rem;
+  
+            .buy_btn {
+              background: var(--secondaryColor);
+              color: var(--primaryColor);
+  
+              &:hover {
                 background: var(--secondaryColor);
-                 .price_seller{
-                    span{
-                        border:1px solid var(--primaryColor);
-                    }
-                 }
-
-                
+                color: var(--blackcolor);
+              }
             }
-
-        }
-        .singleActive{
-            padding: .5rem;
+          }
+  
+          &:hover {
+            transform: translateY(-6px);
             background: var(--greyColor);
-            }
+           
+          }
         }
+  
+        .singleActive {
+          background: var(--greyColor);
+        }
+      }
     }
   }
-@media screen and (min-width:560px) {
-    .auction{
-        .secContainer{
-            .secHeading{
-                margin-top: 1rem;
-                .carTitle{
-                  font-size: 23px;
-                }
-                .navBtns{
-                    gap:.5rem;
-                    .icon{
-                        font-size: 40px;
-                    }
-                }
+  
+  @media screen and (min-width: 560px) {
+    .auction {
+      .secContainer {
+        .secHeading {
+          margin-top: 1rem;
+  
+          .carTitle {
+            font-size: 23px;
+          }
+  
+          .navBtns {
+            gap: .5rem;
+  
+            .icon {
+              font-size: 40px;
             }
-            .carContainer{
-                grid-template-columns: repeat(2,1fr);
-                .singleCar{
-                    .carTitle{
-                        font-size: 18px;
-                    }
-                    .miles,.AWD{
-                        font-size: 16px;
-                    }
-                    .price_seller{
-                        font-weight: 600;
-                    }
-                }
-            }
+          }
         }
-    }
-}
-@media screen and (min-width:990px) {
-    .auction{
-        .secContainer{
-            .secHeading{
-                .carTitle{
-                  font-size:30px;
-                }
-                .navBtns{
-                    gap:.5rem;
-                }
-            }
-            .carContainer{
-                grid-template-columns: repeat(3,1fr);
-                
-            }
+  
+        .carContainer {
+          grid-template-columns: repeat(2, 1fr);
         }
+      }
     }
-}
-
+  }
+  
+  @media screen and (min-width: 990px) {
+    .auction {
+      .secContainer {
+        .secHeading {
+          .carTitle {
+            font-size: 30px;
+          }
+  
+          .navBtns {
+            gap: .5rem;
+          }
+        }
+  
+        .carContainer {
+          grid-template-columns: repeat(3, 1fr);
+        }
+      }
+    }
+  }
   
