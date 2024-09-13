@@ -37,8 +37,7 @@ const App = () => {
       </Routes>
       {/* Conditionally render Search and Review only if it's not a full-page component */}
       {!isFullPage && <Search />}
-     
-      <Footer />
+      {!isFullPage && <Footer />}
     </div>
   )
 }

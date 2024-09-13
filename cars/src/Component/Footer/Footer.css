@@ -1,64 +1,73 @@
 :root {
   --primaryColor: rgb(64, 64, 141);
-  --secondaryColor:rgb(164, 198, 248);
-  --textColor:rgb(38, 38, 38);
-  --greyColor:rgb(218, 213, 213);
-  --whitecolor:white;
-  --blackcolor:rgb(52, 51, 51);
+  --secondaryColor: rgb(164, 198, 248);
+  --textColor: rgb(38, 38, 38);
+  --greyColor: rgb(218, 213, 213);
+  --whiteColor: white;
+  --blackColor: rgb(52, 51, 51);
 }
 
 .footer {
   padding-top: 2rem;
 }
-.footer .footerContainer .footerMenuDiv {
+.footer .footerContainer .footerContact {
   padding: 2rem;
   background: var(--greyColor);
   border-radius: 10px;
+  display: flex;
+  flex-direction: column;
   gap: 2rem;
 }
-.footer .footerContainer .footerMenuDiv .singleGrid .footerTitle {
-  display: block;
-  padding-bottom: 0.5rem;
-  font-size: 16px;
-  color: var(--blackcolor);
+.footer .footerContainer .footerContact .contactSection {
+  display: flex;
+  flex-direction: column;
+}
+.footer .footerContainer .footerContact .contactSection .footerTitle {
+  font-size: 18px;
+  color: var(--blackColor);
   font-weight: 600;
+  margin-bottom: 1rem;
 }
-.footer .footerContainer .footerMenuDiv .singleGrid .footerUl {
-  gap: 0.5rem;
+.footer .footerContainer .footerContact .contactSection .contactList {
+  list-style: none;
+  padding: 0;
+  margin: 0;
 }
-.footer .footerContainer .footerMenuDiv .singleGrid .footerUl .footerli {
-  color: var(--secondaryColor);
-  font-weight: 400;
+.footer .footerContainer .footerContact .contactSection .contactList li {
+  margin-bottom: 0.5rem;
+  color: var(--textColor);
 }
-.footer .footerContainer .footerMenuDiv .singleGrid .footerUl .footerli:hover {
-  color: var(--blackcolor);
-  font-weight: 400;
-  cursor: pointer;
-  transform: translateX(5px);
-  transition: 0.3s;
+.footer .footerContainer .footerContact .contactSection .contactList li a {
+  color: var(--primaryColor);
+  text-decoration: none;
+}
+.footer .footerContainer .footerContact .contactSection .contactList li a:hover {
+  text-decoration: underline;
 }
 .footer .footerContainer .lowerSection {
   padding: 1rem;
   text-align: center;
   font-size: 14px;
   font-weight: 600;
-}
-.footer .footerContainer .lowerSection p {
   color: var(--greyColor);
 }
 .footer .footerContainer .lowerSection blockquote {
-  color: var(--blackcolor);
+  color: var(--blackColor);
+  margin: 0;
 }
 
 @media screen and (min-width: 520px) {
-  .footer .footerContainer .footerMenuDiv {
-    grid-template-columns: repeat(2, 1fr);
+  .footer .footerContainer .footerContact {
+    padding: 2rem;
   }
-  .footer .footerContainer .footerMenuDiv .singleGrid .footerTitle {
-    font-size: 17px;
+  .footer .footerContainer .footerContact .contactSection .footerTitle {
+    font-size: 20px;
   }
-  .footer .footerContainer .footerMenuDiv .singleGrid .footerUl {
-    gap: 5px;
+  .footer .footerContainer .footerContact .contactSection .contactList li {
+    margin-bottom: 1rem;
+  }
+  .footer .footerContainer .footerContact .contactSection .contactList li a {
+    font-weight: 500;
   }
   .footer .footerContainer .lowerSection {
     display: flex;
@@ -67,7 +76,13 @@
   }
 }
 @media screen and (min-width: 940px) {
-  .footer .footerContainer .footerMenuDiv {
-    grid-template-columns: repeat(4, 1fr);
+  .footer .footerContainer .footerContact {
+    padding: 3rem;
+  }
+  .footer .footerContainer .footerContact .contactSection .footerTitle {
+    font-size: 22px;
+  }
+  .footer .footerContainer .footerContact .contactSection .contactList li {
+    margin-bottom: 1rem;
   }
 }/*# sourceMappingURL=Footer.css.map */

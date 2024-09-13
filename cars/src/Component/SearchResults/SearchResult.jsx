@@ -1,36 +1,44 @@
 import React from 'react';
-import './SearchResults.css';
-import suvImage from '../../Assets/used2.jpg';
-import sedanImage from '../../Assets/Sports car.jpg';
-import truckImage from '../../Assets/Mercedes.jpg';
-
-const imageMap = {
-    "Nissan": suvImage,
-    "Sport Car": sedanImage,
-    "Mercedes": truckImage
-};
+import { Link } from 'react-router-dom';
+import './SearchResults.css'; // Ensure to style the new elements
+import AOS from 'aos';
+import 'aos/dist/aos.css';
 
 const SearchResults = ({ results, hasSearched }) => {
-  if (hasSearched && results.length === 0) {
-    return <p>No results found</p>;
+  AOS.init();
+
+  if (!hasSearched) {
+    return null; // Do not render anything if no search has been performed
   }
 
   return (
     <div className='searchResults'>
-      <h3>Search Results</h3>
-      <ul>
-        {results.map((result) => (
-          <li key={result.id} className='resultItem'>
-            <img src={imageMap[result.type]} alt={result.model} className='resultImage' />
-            <div className='resultDetails'>
-              <p><strong>Type:</strong> {result.type}</p>
-              <p><strong>Year:</strong> {result.year}</p>
-              <p><strong>Model:</strong> {result.model}</p>
-              <p><strong>Price:</strong> {result.price}</p>
+      {results.length > 0 ? (
+        results.map((car, index) => (
+          <div 
+            key={index} 
+            data-aos={index < results.length / 2 ? 'fade-right' : 'fade-left'}
+            className={`resultItem ${index % 2 === 0 ? 'singleActive' : ''}`}
+          >
+            <div className='imgDiv'>
+              <img src={car.imgSrc} alt={`Car ${index}`} />
             </div>
-          </li>
-        ))}
-      </ul>
+            <div className='resultDetails'>
+              <h5 className='carTitle'>{car.title}</h5>
+              <span className='AWD'>{car.awd}</span>
+              <span className='miles'>{car.miles}</span>
+              <div className='price_seller'>
+                <span className='price'>{car.price}</span>
+                <Link to="/appointment" className='buy_btn'>
+                  Test Now
+                </Link>
+              </div>
+            </div>
+          </div>
+        ))
+      ) : (
+        <p>No results found.</p>
+      )}
     </div>
   );
 };

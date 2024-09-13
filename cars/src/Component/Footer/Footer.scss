@@ -1,88 +1,119 @@
 :root {
     --primaryColor: rgb(64, 64, 141);
-    --secondaryColor:rgb(164, 198, 248);
-    --textColor:rgb(38, 38, 38);
-    --greyColor:rgb(218, 213, 213);
-    --whitecolor:white;
-    --blackcolor:rgb(52, 51, 51);
+    --secondaryColor: rgb(164, 198, 248);
+    --textColor: rgb(38, 38, 38);
+    --greyColor: rgb(218, 213, 213);
+    --whiteColor: white;
+    --blackColor: rgb(52, 51, 51);
   }
-    
   
-.footer{
+  .footer {
     padding-top: 2rem;
-    .footerContainer{
-        .footerMenuDiv{
-            padding: 2rem;
-            background:var(--greyColor);
-            border-radius:10px;
-            gap: 2rem;
-            .singleGrid{
-                .footerTitle{
-                    display: block;
-                    padding-bottom:.5rem;
-                    font-size: 16px;
-                    color: var(--blackcolor);
-                    font-weight:600;
+  
+    .footerContainer {
+      .footerContact {
+        padding: 2rem;
+        background: var(--greyColor);
+        border-radius: 10px;
+        display: flex;
+        flex-direction: column;
+        gap: 2rem;
+  
+        .contactSection {
+          display: flex;
+          flex-direction: column;
+  
+          .footerTitle {
+            font-size: 18px;
+            color: var(--blackColor);
+            font-weight: 600;
+            margin-bottom: 1rem;
+          }
+  
+          .contactList {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+  
+            li {
+              margin-bottom: 0.5rem;
+              color: var(--textColor);
+  
+              a {
+                color: var(--primaryColor);
+                text-decoration: none;
+                &:hover {
+                  text-decoration: underline;
                 }
-                .footerUl{
-                    gap:.5rem;
-                    .footerli{
-                        color: var(--secondaryColor);
-                        font-weight:400;
-                        &:hover{
-                            color: var(--blackcolor);
-                            font-weight:400;
-                            cursor: pointer;
-                            transform: translateX(5px);
-                            transition:.3s;
-                        }
-                    }
+              }
+            }
+          }
+        }
+      }
+  
+      .lowerSection {
+        padding: 1rem;
+        text-align: center;
+        font-size: 14px;
+        font-weight: 600;
+        color: var(--greyColor);
+  
+        blockquote {
+          color: var(--blackColor);
+          margin: 0;
+        }
+      }
+    }
+  }
+  
+  @media screen and (min-width: 520px) {
+    .footer {
+      .footerContainer {
+        .footerContact {
+          padding: 2rem;
+          .contactSection {
+            .footerTitle {
+              font-size: 20px;
+            }
+  
+            .contactList {
+              li {
+                margin-bottom: 1rem;
+                a {
+                  font-weight: 500;
                 }
+              }
             }
+          }
         }
-        .lowerSection{
-            padding: 1rem;
-            text-align:center;
-            font-size: 14px;
-            font-weight:600;
-         p{
-            color: var(--greyColor);
-         }
-         blockquote{
-            color: var(--blackcolor);
-         }
+  
+        .lowerSection {
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
         }
+      }
     }
-} 
-@media screen and (min-width:520px) {
-    .footer{
-        .footerContainer{
-            .footerMenuDiv{
-                grid-template-columns: repeat(2,1fr);
-                .singleGrid{
-                    .footerTitle{
-                        font-size: 17px;
-                    }
-                    .footerUl{
-                        gap:5px;
-                    }
-                }
+  }
+  
+  @media screen and (min-width: 940px) {
+    .footer {
+      .footerContainer {
+        .footerContact {
+          padding: 3rem;
+          .contactSection {
+            .footerTitle {
+              font-size: 22px;
             }
-        
-        .lowerSection{
-            display: flex;
-            align-items: center;
-            justify-content:space-between;
-        }
-    }
-}
-}
-@media screen and (min-width:940px) {
-    .footer{
-        .footerContainer{
-            .footerMenuDiv{
-                grid-template-columns: repeat(4,1fr);
+  
+            .contactList {
+              li {
+                margin-bottom: 1rem;
+              }
             }
+          }
         }
+      }
     }
-}
+  }
+  

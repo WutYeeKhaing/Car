@@ -7,8 +7,12 @@
   --blackColor: rgb(52, 51, 51);
 }
 
+.trending {
+  overflow-y: hidden;
+}
 .trending .secContainer {
   padding: 3rem 2rem; /* Ensure padding matches auction */
+  overflow: hidden;
 }
 .trending .secContainer .secHeading {
   display: flex;
@@ -17,7 +21,7 @@
   padding: 0rem 0;
 }
 .trending .secContainer .secHeading .secTitle {
-  font-size: 2rem;
+  font-size: 2.1rem;
   color: var(--blackColor);
   font-weight: 700;
 }
@@ -26,18 +30,18 @@
   gap: 1rem;
 }
 .trending .secContainer .secHeading .navBtns .icon {
-  padding: 8px;
+  padding: 9px;
   background: var(--secondaryColor);
   border-radius: 3px;
-  font-size: 35px;
+  font-size: 38px;
   cursor: pointer;
 }
 .trending .secContainer .secHeading .navBtns .icon:hover {
   background: var(--primaryColor);
-  color: var(--textColor);
+  color: var(--whiteColor);
 }
 .trending .secContainer .carContainer {
-  margin-top: 1.5rem;
+  margin-top: 1rem;
   display: flex;
   overflow-x: auto;
   flex-direction: column;
@@ -57,21 +61,23 @@
   border: 5px solid transparent;
 }
 .trending .secContainer .carContainer .singleCar .imgDiv {
-  height: 350px;
+  max-height: 500px;
   width: 100%;
   overflow: hidden;
   border-radius: 10px;
 }
 .trending .secContainer .carContainer .singleCar .imgDiv img {
+  max-height: 550px;
   height: 100%;
   width: 100%;
+  min-width: 100%;
   -o-object-fit: cover;
      object-fit: cover;
 }
 .trending .secContainer .carContainer .singleCar .carTitle {
   color: var(--blackColor);
   font-size: 18px;
-  padding-top: 10px;
+  padding-top: 0px;
 }
 .trending .secContainer .carContainer .singleCar .miles {
   color: var(--blackColor);
@@ -120,4 +126,20 @@
 }
 .trending .secContainer .carContainer .singleActive {
   background: var(--greyColor);
+}
+
+@media screen and (min-width: 768px) {
+  .trending .secContainer .carContainer .singleCar .imgDiv {
+    height: 500px;
+  }
+}
+@media screen and (min-width: 1024px) {
+  .trending .secContainer .carContainer .singleCar .imgDiv {
+    height: 600px;
+  }
+}
+@media screen and (min-width: 1440px) {
+  .trending .secContainer .carContainer .singleCar .imgDiv {
+    height: 550px;
+  }
 }/*# sourceMappingURL=Trending.css.map */

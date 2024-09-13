@@ -32,6 +32,7 @@
 
 
 @media screen and (max-width:760px) {
+    
     .navbar{
         position: absolute;
         background: var(--secondaryColor);
@@ -120,6 +121,15 @@
     background: var(--secondaryColor);
     box-shadow: none;
 }
+@media screen and (max-width: 519px) {
+    .header{
+        .logodiv{
+           img{
+            width: 70px;
+           } 
+        }
+    }
+}
 @media screen and (min-width:520px) {
     .header{
         .logodiv{
@@ -141,7 +151,7 @@
         }
     }
 }
-@media screen and (min-width:770px) {
+@media screen and (min-width:760px) {
     .header{
         .navbar{
             .closeIcon{

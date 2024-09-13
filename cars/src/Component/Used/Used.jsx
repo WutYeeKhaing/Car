@@ -1,4 +1,4 @@
-import React, { useState, useRef } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import './Used.css';
 import { BsArrowLeftShort, BsArrowRightShort } from 'react-icons/bs';
 import cut from '../../Assets/used.jpg';
@@ -7,21 +7,23 @@ import cut2 from '../../Assets/used2.jpg';
 import cut3 from '../../Assets/Toyota.jpg';
 import cut4 from '../../Assets/used3.jpg';
 import cut5 from '../../Assets/used4.jpg';
-
+import AOS from 'aos';
+import 'aos/dist/aos.css';
+import { Link } from 'react-router-dom';
 const carData = [
   {
     imgSrc: cut,
     title: 'Used Mercedes-Benz G63',
     miles: '14563 Miles',
     awd: 'AWD 4-Cylinder Turbo',
-    price: '$57,890',
+    price: '$50,890',
   },
   {
     imgSrc: cut1,
     title: 'Used Porsche 911',
     miles: '14563 Miles',
     awd: 'AWD 4-Cylinder Turbo',
-    price: '$57,890',
+    price: '$40,000',
   },
   {
     imgSrc: cut2,
@@ -58,6 +60,12 @@ const Used = () => {
   const visibleItems = 3; // Number of visible items
   const containerRef = useRef(null);
 
+  useEffect(() => {
+    AOS.init({
+      duration: 2000
+    });
+  }, []);
+
   const handlePrev = () => {
     if (startIndex > 0) {
       setStartIndex(startIndex - 1);
@@ -73,26 +81,27 @@ const Used = () => {
   return (
     <div className='auction section'>
       <div className='secContainer container'>
-        <div className='secHeading flex'>
+        <div className='secHeading flex' data-aos="fade-right">
           <h3 className='secTitle'>Popular In 2024</h3>
           <div className='navBtns flex'>
             <BsArrowLeftShort className='icon leftIcon' onClick={handlePrev} />
             <BsArrowRightShort className='icon rightIcon' onClick={handleNext} />
           </div>
         </div>
-        <div className='carContainer' ref={containerRef}>
+        <div className='carContainer' ref={containerRef} >
           {carData.slice(startIndex, startIndex + visibleItems).map((car, index) => (
-            <div key={index} className='singleCar'>
+            <div key={index} className='singleCar'  data-aos={index < visibleItems / 2 ? 'fade-right' : 'fade-left'} data-aos-delay={index * 100}>
               <div className='imgDiv'>
                 <img src={car.imgSrc} alt={`Car ${index}`} />
               </div>
               <h5 className='carTitle'>{car.title}</h5>
-             
-              <span className='AWD'>{car.awd}</span> 
+              <span className='AWD'>{car.awd}</span>
               <span className='miles'>{car.miles}</span>
               <div className='price_seller flex'>
                 <span className='price'>{car.price}</span>
-                <span className='buy_btn'>Connect Now</span>
+                <Link to="/appointment" className='buy_btn'>
+                  Test Now
+                </Link>
               </div>
             </div>
           ))}

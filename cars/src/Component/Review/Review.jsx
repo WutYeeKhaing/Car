@@ -1,4 +1,4 @@
-import React, { useState, useRef } from 'react';
+import React, { useState, useRef,useEffect } from 'react';
 import './Review.css';
 import Rita from '../../Assets/Rita.jpg';
 import Car1 from '../../Assets/fr.jpg';
@@ -12,7 +12,8 @@ import seller3 from '../../Assets/seller3.jpg';
 import seller4 from '../../Assets/seller4.jpg';
 import { AiFillStar } from 'react-icons/ai';
 import { BsArrowLeftShort, BsArrowRightShort } from 'react-icons/bs';
-
+import AOS from 'aos';
+import 'aos/dist/aos.css';
 const reviewData = [
   {
     imgSrc: Car1,
@@ -66,6 +67,13 @@ const Review = () => {
   const visibleItems = 3; // Number of visible items
   const containerRef = useRef(null);
 
+  useEffect(() => {
+    AOS.init({
+      duration: 1000,
+      once: true,
+    });
+  }, []);
+
   const handlePrev = () => {
     if (startIndex > 0) {
       setStartIndex(startIndex - 1);
@@ -79,8 +87,8 @@ const Review = () => {
   };
 
   return (
-    <div className='review'>
-      <div className='secContainer '>
+    <div className='review' data-aos="fade-up">
+      <div className='secContainer'>
         <div className='secHeading flex'>
           <h3 className='secTitle'>Recommended Cars</h3>
           <div className='navBtns flex'>
@@ -90,7 +98,7 @@ const Review = () => {
         </div>
         <div className='reviewContainer grid' ref={containerRef}>
           {reviewData.slice(startIndex, startIndex + visibleItems).map((review, index) => (
-            <div key={index} className='singleReview grid'>
+            <div key={index} className='singleReview grid' data-aos="fade-up" data-aos-delay={index * 100}>
               <div className='imgDiv'>
                 <img src={review.imgSrc} alt='Car'/>
               </div>
@@ -118,5 +126,4 @@ const Review = () => {
     </div>
   );
 };
-
-export default Review;
+export default Review

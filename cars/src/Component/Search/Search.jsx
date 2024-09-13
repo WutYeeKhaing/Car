@@ -5,13 +5,175 @@ import Aos from 'aos';
 import 'aos/dist/aos.css';
 import axios from 'axios'; // Import axios
 import SearchResults from '../SearchResults/SearchResult';
+import logo from '../../Assets/logo.png'
+import cut from '../../Assets/cut6.png';
+import cut1 from '../../Assets/cu.png';
+import cut2 from '../../Assets/toyota.png';
+import cut3 from '../../Assets/1t.png';
+import cut4 from '../../Assets/cut4.png';
+import cut5 from '../../Assets/carcut.png';
+const carData = {
+  Sedan: ['Model S', 'Model 3', 'Accord', 'Civic'],
+  SUV: ['Model X', 'Model Y', 'CR-V', 'Highlander'],
+  Truck: ['F-150', 'Silverado', 'Ram 1500'],
+  Coupe: ['Mustang', 'Camaro', 'Challenger'],
+  SportsCar : ['GT'],
+  Hatchback: ['Yaris'],
+};
+
+const mockResults = [
+  {
+    id: 1,
+    type: 'Sedan',
+    model: 'Model S',
+    year: '2022',
+    imgSrc: cut1,  // Add image source
+    title: 'Used Model S 2022',
+    miles: '14,563 Miles',
+    awd: 'AWD 4-Cylinder Turbo',
+    price: '$80,000',
+  },
+  {
+    id: 2,
+    type: 'SUV',
+    model: 'Model X',
+    year: '2021',
+    imgSrc:  logo,  // Add image source
+    title: 'Used Model X 2021',
+    miles: '10,245 Miles',
+    awd: 'AWD Dual Motor',
+    price: '$90,000',
+  },
+  {
+    id: 3,
+    type: 'Truck',
+    model: 'F-150',
+    year: '2020',
+    imgSrc: logo,  // Add image source
+    title: 'Used F-150 2020',
+    miles: '20,000 Miles',
+    awd: '4WD V8 Engine',
+    price: '$50,000',
+  },
+  {
+    id: 4,
+    type: 'SUV',
+    model: 'G63',
+    imgSrc: cut,
+    title: 'Used Mercedes-Benz G63',
+    year: '2019',
+    miles: '32,000 Miles',
+    awd: 'AWD V8 Biturbo',
+    price: '$90,990',
+  },
+  {
+    id: 5,
+    type: 'Coupe',
+    model: '911',
+    imgSrc: cut1,
+    title: 'Used Porsche 911',
+    year: '2018',
+    miles: '14,000 Miles',
+    awd: 'AWD 6-Cylinder Turbo',
+    price: '$67,000',
+  },
+  {
+    id: 6,
+    type: 'Hatchback',
+    model: 'Yaris',
+    imgSrc: cut2,
+    title: 'Toyota Yaris',
+    year: '2020',
+    miles: '20,063 Miles',
+    awd: 'AWD 4-Cylinder Turbo',
+    price: '$57,800',
+  },
+  {
+    id: 7,
+    type: 'SportsCar',
+    model: 'GT',
+    imgSrc: cut3,
+    title: 'Used Ford GT 2017 White',
+    year: '2017',
+    miles: '17,800 Miles',
+    awd: 'AWD V6 EcoBoost',
+    price: '$56,000',
+  },
+  {
+    id: 8,
+    type: 'Truck',
+    model: 'F-150',
+    imgSrc: cut4,
+    title: 'Used Ford F-150',
+    year: '2018',
+    miles: '14,563 Miles',
+    awd: 'AWD V8 Engine',
+    price: '$56,000',
+  },
+  {
+    id: 9,
+    type: 'Truck',
+    model: 'F-150',
+    imgSrc: cut5,
+    title: 'Used Ford F-150 2019',
+    year: '2019',
+    miles: '14,563 Miles',
+    awd: 'AWD V8 Engine',
+    price: '$44,500',
+  },
+  {
+    id: 10,
+    type: 'Sedan',
+    model: 'Model S',
+    imgSrc: logo,
+    title: 'Used Tesla Model S',
+    year: '2021',
+    miles: '12,000 Miles',
+    awd: 'AWD Dual Motor',
+    price: '$78,000',
+  },
+  {
+    id: 11,
+    type: 'SUV',
+    model: 'Model X',
+    imgSrc: logo,
+    title: 'Used Tesla Model X',
+    year: '2020',
+    miles: '10,500 Miles',
+    awd: 'AWD Dual Motor',
+    price: '$90,000',
+  },
+  {
+    id: 12,
+    type: 'Sedan',
+    model: 'Accord',
+    imgSrc: logo,
+    title: 'Used Honda Accord',
+    year: '2019',
+    miles: '22,000 Miles',
+    awd: 'FWD 4-Cylinder',
+    price: '$30,000',
+  },
+  {
+    id: 13,
+    type: 'Sedan',
+    model: 'Civic',
+    imgSrc: logo,
+    title: 'Used Honda Civic',
+    year: '2020',
+    miles: '18,500 Miles',
+    awd: 'FWD 4-Cylinder',
+    price: '$25,000',
+  },
+ 
+];
+
 
 const Search = () => {
   const [type, setType] = useState('');
   const [year, setYear] = useState('');
   const [model, setModel] = useState('');
   const [price, setPrice] = useState('');
-  const [error, setError] = useState('');
   const [results, setResults] = useState([]); // To store search results
   const [loading, setLoading] = useState(false); // To show a loading state
   const [hasSearched, setHasSearched] = useState(false); // To track if a search has been performed
@@ -36,34 +198,33 @@ const Search = () => {
   const handleSearch = async (e) => {
     e.preventDefault();
     const validationError = validateInputs();
-
+  
     if (validationError) {
-      alert(validationError); // Show validation error as an alert
+      alert(validationError);
       return;
     }
-
+  
     setLoading(true);
-    setHasSearched(true); // Set hasSearched to true when a search is performed
-
-    try {
-      // Make API request to the mock server
-      const response = await axios.get('http://localhost:5000/vehicles', {
-        params: {
-          type,
-          year,
-          model,
-          price,
-        },
+    setHasSearched(true);
+    setResults([]); // Clear previous results
+  
+    // Simulate search result
+    setTimeout(() => {
+      // Parse selected price range
+      const [minPrice, maxPrice] = price.split('-').map(p => parseInt(p.replace(/[^\d]/g, ''), 10));
+      
+      const filteredResults = mockResults.filter(car => {
+        const carPrice = parseInt(car.price.replace(/[^\d]/g, ''), 10);
+        return car.type === type && car.model === model && car.year === year && 
+               carPrice >= minPrice && (maxPrice ? carPrice <= maxPrice : true);
       });
-
-      setResults(response.data); // Assuming the API returns an array of results
-    } catch (error) {
-      console.error('Error fetching search results', error);
-      alert('Failed to fetch search results. Please try again later.'); // Show error as an alert
-    } finally {
+  
+      setResults(filteredResults.length > 0 ? filteredResults : []);
       setLoading(false);
-    }
+    }, 1000);  // Simulate delay
   };
+  
+  
 
   return (
     <div className='search '>
@@ -73,13 +234,20 @@ const Search = () => {
         </h3>
 
         <form className='searchDiv grid' onSubmit={handleSearch}>
-          <input
+          {/* Type Dropdown */}
+          <select
             data-aos='fade-up'
-            type='text'
-            placeholder='Type'
             value={type}
-            onChange={handleInputChange(setType)}
-          />
+            onChange={(e) => {
+              setType(e.target.value);
+              setModel(''); // Reset model when type changes
+            }}
+          >
+            <option value='' disabled>Select Type</option>
+            {Object.keys(carData).map((type) => (
+              <option key={type} value={type}>{type}</option>
+            ))}
+          </select>
 
           {/* Year Dropdown */}
           <select
@@ -93,13 +261,18 @@ const Search = () => {
             ))}
           </select>
 
-          <input
+          {/* Model Dropdown */}
+          <select
             data-aos='fade-up'
-            type='text'
-            placeholder='Model'
             value={model}
             onChange={handleInputChange(setModel)}
-          />
+            disabled={!type} // Disable if type not selected
+          >
+            <option value='' disabled>Select Model</option>
+            {carData[type]?.map((model) => (
+              <option key={model} value={model}>{model}</option>
+            ))}
+          </select>
 
           {/* Price Range Dropdown */}
           <select

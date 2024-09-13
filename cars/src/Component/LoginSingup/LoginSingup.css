@@ -1,11 +1,12 @@
 :root {
   --primaryColor: rgb(64, 64, 141);
   --secondaryColor:rgb(164, 198, 248);
-  --textColor:rgb(38, 38, 38);
-  --greyColor:rgb(218, 213, 213);
-  --whitecolor:white;
-  --blackcolor:rgb(52, 51, 51);
+  --textColor:rgb(74, 73, 73);
+  --greyColor:rgb(235, 235, 235);
+  --whitecolor:rgb(255, 255, 255);
+  --blackcolor:rgb(66, 64, 64);
 }
+
 .wrapper {
   width: 100%;
   height: 70vh;
@@ -15,7 +16,7 @@
           backdrop-filter: blur(50px);
   box-shadow: 0 0 10px var(--secondaryColor);
   color: var(--secondaryColor);
-  padding: 30px 40px;
+  padding: 70px 40px;
 }
 
 .loginContainer {

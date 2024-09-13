@@ -9,20 +9,27 @@
   
   .auction {
     .secContainer {
-      
+        padding: 2rem;
 
       .secHeading {
-        justify-content: space-between;
-        padding: 0rem 0;
-        
+        display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding-bottom: 1.5rem;
+            .secTitle {
+                font-size: 2rem;
+                color: var(--blackColor);
+                font-weight: 700;
+            }
+
         .navBtns {
-          gap: .5rem;
+          gap: 1rem;
   
           .icon {
             padding: 8px;
             background: var(--secondaryColor);
             border-radius: 3px;
-            font-size: 30px;
+            font-size: 32px;
             cursor: pointer;
   
             &:hover {
@@ -45,10 +52,9 @@
             justify-content: space-between;
             transition: transform 0.3s ease, box-shadow 0.2s ease;
             border-radius: 8px;
-            background: var(--whiteColor);
             overflow: hidden;
             text-align: left;
-            min-height: 360px;
+            min-height: 400px;
   
           .imgDiv {
             height: 200px;
@@ -104,9 +110,13 @@
             }
   
             .buy_btn {
-              background: var(--secondaryColor);
-              color: var(--primaryColor);
-  
+                background: var(--secondaryColor);
+                color: var(--whiteColor);
+                padding: 0.5rem 1rem;
+                border-radius: 3px;
+                font-weight: 600;
+                cursor: pointer;
+                
               &:hover {
                 background: var(--secondaryColor);
                 color: var(--blackcolor);

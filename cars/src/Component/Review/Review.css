@@ -1,7 +1,7 @@
 .review .secContainer .secHeading {
   display: flex;
   justify-content: space-between;
-  align-items: center; /* Align items center */
+  align-items: center;
   margin: 3rem 0 0;
 }
 .review .secContainer .secHeading .navBtns {
@@ -12,20 +12,24 @@
   padding: 3px 5px;
   background: var(--secondaryColor);
   border-radius: 3px;
-  font-size: 24px; /* Reduced size for better consistency */
+  font-size: 24px;
   cursor: pointer;
 }
 .review .secContainer .secHeading .navBtns .icon:hover {
   background: var(--primaryColor);
-  color: var(--textColor);
+  color: var(--whiteColor);
 }
 .review .secContainer .reviewContainer {
   display: grid;
-  gap: 1.5rem;
+  gap: 0.5rem;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Ensure responsive grid */
 }
 .review .secContainer .reviewContainer .singleReview {
   display: grid;
-  gap: 1rem;
+  gap: 0.5rem;
+  min-height: 400px; /* Ensures consistent height for all review items */
+  padding: 0 0.5rem;
+  transition: transform 0.3s ease;
 }
 .review .secContainer .reviewContainer .singleReview .imgDiv {
   height: 220px;
@@ -43,11 +47,13 @@
 .review .secContainer .reviewContainer .singleReview .reviewC {
   color: var(--blackColor);
   font-size: 15px;
+  line-height: 1.5; /* Consistent line-height */
   padding-top: 0px;
 }
 .review .secContainer .reviewContainer .singleReview .desc {
   color: var(--blackColor);
   font-size: 14px;
+  line-height: 1.4; /* Consistent line-height */
 }
 .review .secContainer .reviewContainer .singleReview .reviewDiv {
   display: flex;
@@ -102,10 +108,10 @@
     font-size: 24px;
   }
   .review .secContainer .secHeading .navBtns .icon {
-    font-size: 30px; /* Adjusted size for larger screens */
+    font-size: 30px;
   }
   .review .reviewContainer {
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(2, 1fr); /* Ensures 2 columns on medium screens */
   }
   .review .reviewContainer .singleReview .reviewC {
     font-size: 18px;
@@ -120,7 +126,7 @@
     font-size: 16px;
   }
   .review .reviewContainer .singleReview .reviewDiv .rightDiv .icon {
-    font-size: 30px; /* Adjusted size for larger screens */
+    font-size: 30px;
   }
   .review .reviewContainer .singleReview .reviewDiv .rightDiv blockquote {
     font-size: 17px;
@@ -134,9 +140,9 @@
     gap: 1rem;
   }
   .review .secContainer .secHeading .navBtns .icon {
-    font-size: 30px; /* Adjusted size for larger screens */
+    font-size: 30px;
   }
   .review .reviewContainer {
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(3, 1fr); /* Ensures 3 columns on large screens */
   }
 }/*# sourceMappingURL=Review.css.map */
