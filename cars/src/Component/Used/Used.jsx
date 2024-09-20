@@ -122,7 +122,7 @@ const Used = () => {
 
   return (
     <div className='auction section'>
-      <div className='secContainer container'>
+      <div className='secContainer container grid'>
         <div className='secHeading flex' data-aos="fade-right">
           <h3 className='secTitle'>Popular In 2024</h3>
           <div className='navBtns flex'>

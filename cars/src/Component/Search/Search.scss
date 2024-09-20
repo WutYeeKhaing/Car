@@ -108,4 +108,40 @@
       }
     }
   }
+  @media screen and (max-width: 480px) {
+    .search {
+      padding: 1rem 0;
+  
+      .title {
+        font-size: 20px;
+        padding: 1rem 0;
+      }
+  
+      .searchDiv {
+        display: flex;
+        flex-direction: column; /* Stack items vertically */
+        gap: 1rem;
+        grid-template-columns: none; /* Remove grid for a more flexible layout */
+        align-items: stretch; /* Ensure elements take full width */
+  
+        input,
+        select {
+          padding: 8px;
+          font-size: 14px;
+          border-radius: 5px;
+        }
+  
+        .btn {
+          font-size: 14px;
+          padding: 8px;
+          justify-content: center;
+          align-items: center;
+          gap: .3rem;
+          .icon {
+            font-size: 14px;
+          }
+        }
+      }
+    }
+  }
   

@@ -90,4 +90,36 @@
   .search .searchDiv {
     grid-template-columns: repeat(5, 1fr);
   }
+}
+@media screen and (max-width: 480px) {
+  .search {
+    padding: 1rem 0;
+  }
+  .search .title {
+    font-size: 20px;
+    padding: 1rem 0;
+  }
+  .search .searchDiv {
+    display: flex;
+    flex-direction: column; /* Stack items vertically */
+    gap: 1rem;
+    grid-template-columns: none; /* Remove grid for a more flexible layout */
+    align-items: stretch; /* Ensure elements take full width */
+  }
+  .search .searchDiv input,
+  .search .searchDiv select {
+    padding: 8px;
+    font-size: 14px;
+    border-radius: 5px;
+  }
+  .search .searchDiv .btn {
+    font-size: 14px;
+    padding: 8px;
+    justify-content: center;
+    align-items: center;
+    gap: 0.3rem;
+  }
+  .search .searchDiv .btn .icon {
+    font-size: 14px;
+  }
 }/*# sourceMappingURL=Search.css.map */

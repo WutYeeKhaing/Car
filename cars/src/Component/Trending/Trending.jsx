@@ -40,7 +40,7 @@ const carData = [
     type: 'Coupe',
     transmission: 'Manual',
     fuelType: 'Gasoline',
-    warranty: 'No warranty available',
+    warranty: 'No warranty ',
   },
 ];
 
@@ -79,7 +79,7 @@ const Trending = () => {
             <BsArrowRightShort className='icon rightIcon' onClick={handleNext} />
           </div>
         </div>
-        <div className='carContainer' ref={containerRef} data-aos="fade-up" >
+        <div className='carContainer' ref={containerRef} data-aos="fade-left" >
           {carData.slice(startIndex, startIndex + visibleItems).map((car, index) => (
             <div key={index} className='singleCar'  data-aos-delay={index * 100}>
               <div className='imgDiv'>

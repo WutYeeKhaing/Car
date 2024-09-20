@@ -52,9 +52,9 @@ const Navbar = () => {
       </ul>
       <IoIosCloseCircle className="icon closeIcon" onClick={removeNavbar}/>
     </div>
-    <div className='signUp flex'>
+    <div className='signUp '>
     
-        <TbGridDots className='icon toggleNavbarIcon' onClick={showNavbar}/>
+        <TbGridDots className='icon-nav toggleNavbarIcon' onClick={showNavbar}/>
         
     </div>
   

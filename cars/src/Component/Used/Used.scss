@@ -1,61 +1,63 @@
 .auction {
     .secContainer {
-        padding: 2rem;
+        padding: 1rem;
+        max-width: 100%;
+        overflow-x: hidden;
 
         .secHeading {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding-bottom: 1.5rem;
+            padding-bottom: 1rem;
+            flex-wrap: wrap;
 
             .secTitle {
-                font-size: 2rem;
+                font-size: 1.5rem;
                 color: var(--blackColor);
                 font-weight: 700;
+                margin-bottom: 0.5rem;
+                text-align: left;
             }
 
             .navBtns {
                 display: flex;
                 gap: 1rem;
-
+                
                 .icon {
-                    padding: 8px;
-                    background: var(--secondaryColor);
-                    border-radius: 5px;
-                    font-size: 32px;
-                    cursor: pointer;
-                    transition: background 0.3s, color 0.3s;
-
-                    &:hover {
-                        background: var(--primaryColor);
-                        color: var(--whiteColor);
-                    }
+                  padding: 9px;
+                  background: var(--secondaryColor);
+                  border-radius: 3px;
+                  font-size: 38px;
+                  cursor: pointer;
+                  
+                  &:hover {
+                    background: var(--primaryColor);
+                    color: var(--whiteColor);
+                  }
                 }
+              }
             }
-        }
 
         .carContainer {
             display: grid;
-            gap: 1.5rem;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            align-items: stretch; /* Ensures equal height for all items */
+            gap: 1rem;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            align-items: stretch;
 
             .singleCar {
                 display: flex;
                 flex-direction: column;
                 justify-content: space-between;
-                transition: transform 0.3s ease, box-shadow 0.2s ease;
-                border-radius: 8px;
                 background: var(--whiteColor);
+                border-radius: 8px;
                 overflow: hidden;
+                transition: transform 0.3s ease, box-shadow 0.2s ease;
                 text-align: left;
-                min-height: 360px; /* Optional: adjust as needed */
 
                 .imgDiv {
-                    height: 200px;
+                    height: 180px;
                     width: 100%;
                     overflow: hidden;
-                    
 
                     img {
                         height: 100%;
@@ -65,56 +67,64 @@
                 }
 
                 .carTitle {
+                    font-size: 1rem;
+                    padding: 0.5rem;
                     color: var(--blackColor);
-                    font-size: 1.25rem;
-                    padding: 0 0.5rem;
                     font-weight: 600;
                 }
 
                 .miles {
-                    display: flex;
-                    justify-content: space-between; /* Space between columns */
-                    margin-left: 10px;
-                    width: 100%; /* Full width of the container */
-                  }
-                  
-                  .miles-column {
-                    display: flex;
-                    flex-direction: column; /* Stack items vertically in each column */
-                    gap: 0px; /* Optional: Add space between each item inside the column */
-                    width: 50%; /* Optional: Adjust column width to fit within container */
-                  }
-                  
-                  .miles p{
-                    color: var(--blackcolor);
-                    opacity: .9;
-                    font-size: 14px;
-                    line-height: 8px;
-        
-                  }
+                    display: grid;
+                    grid-template-columns: 1fr 1fr;
+                    gap: 0rem;
+                    
+                    background-color: var(--lightGreyColor);
+                    border-radius: 8px;
+
+                    .miles-column {
+                        display: flex;
+                        flex-direction: column;
+                        gap: 0.5rem;
+
+                        p {
+                            font-size: 0.8rem;
+                            color: var(--blackColor);
+                            opacity: 0.8;
+                            margin: 0;
+                            line-height: 1.2;
+                        }
+                    }
+                    .miles-column:first-child {
+                        text-align: left;
+                        width: 50%;
+                        padding-left: 0.75rem;
+                    }
+
+                    .miles-column:last-child {
+                        text-align: right;
+                        width: 80%;
+                    }
+                }
                 .price_seller {
                     display: flex;
-                    justify-content: space-between;
-                    padding: 0.75rem;
-                    border-top: 1px solid var(--greyColor);
+          justify-content: space-between;
+          gap: 1rem;
+          padding: 0.75rem;
+          border-top: 1px solid var(--greyColor);
 
-                    span {
-                        cursor: pointer;
-                        padding: 0.5rem 1rem;
-                        border-radius: 4px;
+                     .price {
+                        font-size: 1rem;
                         font-weight: 600;
-                        font-size: 0.9rem;
-                        transition: background 0.3s, color 0.3s;
+                        color: var(--primaryColor);
+                        background: var(--secondaryColor);
+                        padding: 0.5rem 1rem;
+                        border-radius: 3px;
+                        cursor: pointer;
 
                         &:hover {
                             background-color: var(--primaryColor);
                             color: var(--whiteColor);
                         }
-                    }
-
-                    .price {
-                        background: var(--secondaryColor);
-                        color: var(--primaryColor);
                     }
 
                     .buy_btn {
@@ -123,18 +133,17 @@
                         padding: 0.5rem 1rem;
                         border-radius: 3px;
                         font-weight: 600;
+                        font-size: 0.8rem;
                         cursor: pointer;
+                        transition: background 0.3s, color 0.3s;
+
                         &:hover {
-                          
                             color: var(--primaryColor);
                         }
                     }
-                    
-                }
-
+                    }
                 &:hover {
                     transform: translateY(-5px);
-                    background: var(--greyColor);
                     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
                 }
             }
@@ -142,55 +151,53 @@
     }
 }
 
-@media screen and (min-width: 560px) {
-    .auction {
-        .secContainer {
-            .secHeading {
-                .secTitle {
-                    font-size: 2.25rem;
-                }
-
-                .navBtns {
-                    .icon {
-                        font-size: 36px;
-                    }
-                }
+@media screen and (min-width: 480px) {
+    .auction .secContainer {
+        .secHeading {
+            .secTitle {
+                font-size: 1.75rem;
             }
-
-            .carContainer {
-                grid-template-columns: repeat(2, 1fr);
-
-                .singleCar {
-                    .carTitle {
-                        font-size: 1.5rem;
-                    }
-                    .miles {
-                        font-size: 1rem;
-                    }
-                }
+            .navBtns .icon {
+                font-size: 35px;
+            }
+        }
+        .carContainer .singleCar {
+            .carTitle {
+                font-size: 1.1rem;
+            }
+            .miles p {
+                font-size: 0.9rem;
             }
         }
     }
 }
 
-@media screen and (min-width: 990px) {
-    .auction {
-        .secContainer {
-            .secHeading {
-                .secTitle {
-                    font-size: 2.75rem;
-                }
-
-                .navBtns {
-                    .icon {
-                        font-size: 40px;
-                    }
-                }
+@media screen and (min-width: 768px) {
+    .auction .secContainer {
+        padding: 2rem;
+        .secHeading {
+            .secTitle {
+                font-size: 2rem;
             }
-
-            .carContainer {
-                grid-template-columns: repeat(3, 1fr);
+            .navBtns .icon {
+                font-size: 38px;
             }
+        }
+        .carContainer {
+            grid-template-columns: repeat(2, 1fr);
+        }
+    }
+}
+
+@media screen and (min-width: 1024px) {
+    .auction .secContainer {
+        .secHeading {
+            .secTitle {
+                font-size: 2.25rem;
+            }
+        }
+        .carContainer {
+            grid-template-columns: repeat(3, 1fr);
         }
     }
 }

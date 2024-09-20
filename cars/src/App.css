@@ -7,6 +7,10 @@
   font-family: "Titillium Web", sans-serif, Arial;
 }
 
+body {
+  overflow-x: hidden;
+}
+
 :root {
   --primaryColor: rgb(64, 64, 141);
   --secondaryColor:rgb(164, 198, 248);
@@ -120,4 +124,10 @@ img {
 ::-webkit-scrollbar-thumb {
   background: var(--secondaryColor);
   border-radius: 10px;
+}
+
+@media screen and (max-width: 480px) {
+  .section {
+    padding: 6rem 0rem;
+  }
 }/*# sourceMappingURL=App.css.map */

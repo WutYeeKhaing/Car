@@ -267,8 +267,8 @@ const Search = () => {
       
       const filteredResults = mockResults.filter(car => {
         const carPrice = parseInt(car.price.replace(/[^\d]/g, ''), 10);
-        return car.type === type && car.model === model && car.year === year && 
-               carPrice >= minPrice && (maxPrice ? carPrice <= maxPrice : true);
+        return car.type === type && car.model === model && car.year === year &&
+          carPrice >= minPrice && (maxPrice ? carPrice <= maxPrice : true);
       });
   
       setResults(filteredResults.length > 0 ? filteredResults : []);
@@ -276,7 +276,13 @@ const Search = () => {
     }, 1000);  // Simulate delay
   };
   
-  
+  const getAvailableYears = () => {
+    return [...new Set(mockResults
+      .filter(car => car.type === type && car.model === model)
+      .map(car => car.year)
+    )];
+  };
+
 
   return (
     <div className='search '>
@@ -293,38 +299,50 @@ const Search = () => {
             onChange={(e) => {
               setType(e.target.value);
               setModel(''); // Reset model when type changes
+              setYear('');   // Reset year when type changes
             }}
           >
             <option value='' disabled>Select Type</option>
-            {Object.keys(carData).map((type) => (
+            {[...new Set(mockResults.map(car => car.type))].map((type) => (
               <option key={type} value={type}>{type}</option>
             ))}
           </select>
-
-          {/* Year Dropdown */}
-          <select
-            data-aos='fade-up'
-            value={year}
-            onChange={handleInputChange(setYear)}
-          >
-            <option value='' disabled>Select Year</option>
-            {Array.from({ length: 50 }, (_, i) => new Date().getFullYear() - i).map((year) => (
-              <option key={year} value={year}>{year}</option>
-            ))}
-          </select>
-
-          {/* Model Dropdown */}
-          <select
+ {/* Model Dropdown */}
+ <select
             data-aos='fade-up'
             value={model}
             onChange={handleInputChange(setModel)}
-            disabled={!type} // Disable if type not selected
+            disabled={!type}
           >
             <option value='' disabled>Select Model</option>
-            {carData[type]?.map((model) => (
+            {/* Filter models based on the selected type */}
+            {[...new Set(mockResults
+              .filter(car => car.type === type)
+              .map(car => car.model)
+            )].map((model) => (
               <option key={model} value={model}>{model}</option>
             ))}
           </select>
+
+           {/* Year Dropdown */}
+           <select
+            data-aos='fade-up'
+            value={year}
+            onChange={handleInputChange(setYear)}
+            disabled={!model}
+          >
+            <option value='' disabled>Select Year</option>
+            {/* Display filtered years based on selected model */}
+            {getAvailableYears().length > 0 ? (
+              getAvailableYears().map(year => (
+                <option key={year} value={year}>{year}</option>
+              ))
+            ) : (
+              <option disabled>No Available Years</option>
+            )}
+          </select>
+
+         
 
           {/* Price Range Dropdown */}
           <select

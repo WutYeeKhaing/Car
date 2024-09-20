@@ -123,4 +123,64 @@
   .searchResults .resultItem {
     grid-template-columns: repeat(3, 1fr);
   }
+}
+@media screen and (max-width: 480px) {
+  .searchResults {
+    padding: 0.5rem;
+  }
+  .resultItem {
+    display: flex;
+    flex-direction: column;
+    padding: 1rem;
+    margin-bottom: 1rem;
+    min-height: auto; /* Let height be dynamic */
+    background: var(--whiteColor);
+  }
+  .imgDiv {
+    height: 200px;
+    max-height: 200px; /* Reduce image height for mobile */
+    width: 100%;
+    border: 3px solid transparent;
+  }
+  .imgDiv img {
+    height: 100%;
+    -o-object-fit: contain;
+       object-fit: contain;
+    aspect-ratio: auto; /* Maintain the image aspect ratio */
+  }
+  .resultDetails {
+    padding: 0.5rem 0; /* Reduce padding for mobile */
+  }
+  .carTitle {
+    font-size: 16px; /* Adjust title size for better fit on smaller screens */
+    color: var(--blackColor);
+    padding-top: 0px;
+  }
+  .miles {
+    flex-direction: column; /* Stack columns vertically */
+    margin-left: 0;
+    gap: 0.5rem; /* Add space between items */
+    width: 100%; /* Full width for better fit */
+  }
+  .miles-column {
+    width: 100%; /* Make each column full width */
+  }
+  .miles p {
+    font-size: 12px; /* Reduce text size for mobile */
+    line-height: 14px;
+  }
+  .price_seller {
+    flex-direction: column; /* Stack price and buy button vertically */
+    gap: 0.5rem; /* Add spacing between elements */
+    align-items: stretch; /* Stretch items to fill width */
+  }
+  .price, .buy_btn {
+    width: 100%; /* Full width buttons for easier clicking on mobile */
+    padding: 0.5rem;
+    text-align: center;
+  }
+  .resultItem:hover {
+    transform: none; /* Disable hover transform on mobile for better UX */
+    background: var(--greyColor);
+  }
 }/*# sourceMappingURL=SearchResults.css.map */

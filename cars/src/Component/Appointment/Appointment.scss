@@ -64,3 +64,27 @@
 .appointment-form button:hover {
   background: var(--hoverColor); /* Slightly darker primary color for hover effect */
 }
+@media screen and (max-width: 480px) {
+  .appointment-form {
+    padding: 15px; /* Reduce padding for better fit */
+    margin: 20px auto; /* Adjust margin for smaller screens */
+    width: 90%; /* Reduce the form width to fit smaller screens */
+  }
+
+  .appointment-form h1 {
+    font-size: 20px; /* Reduce font size of the heading for better fit */
+    margin-bottom: 15px; /* Reduce margin to save space */
+  }
+
+  .appointment-form input,
+  .appointment-form select {
+    font-size: 14px; /* Reduce font size for input and select elements */
+    padding: 8px; /* Adjust padding for smaller screens */
+    margin: 8px 0; /* Reduce margin between elements */
+  }
+
+  .appointment-form button {
+    padding: 12px; /* Reduce padding for the button */
+    font-size: 16px; /* Adjust font size for the button */
+  }
+}
