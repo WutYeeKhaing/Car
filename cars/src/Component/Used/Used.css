@@ -110,6 +110,9 @@
   font-weight: 600;
   cursor: pointer;
 }
+.auction .secContainer .carContainer .singleCar .price_seller .buy_btn:hover {
+  color: var(--primaryColor);
+}
 .auction .secContainer .carContainer .singleCar:hover {
   transform: translateY(-5px);
   background: var(--greyColor);

@@ -10,6 +10,9 @@
 .seller {
   background: var(--greyColor);
 }
+.seller .secContainer .secHeading {
+  margin-top: 3rem;
+}
 .seller .secContainer .sellerContainer {
   cursor: pointer;
 }

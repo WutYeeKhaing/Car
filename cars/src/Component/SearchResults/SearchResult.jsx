@@ -26,7 +26,21 @@ const SearchResults = ({ results, hasSearched }) => {
             <div className='resultDetails'>
               <h5 className='carTitle'>{car.title}</h5>
             
-              <span className='miles'>{car.miles}</span>
+              <div className='miles'>
+                <div className='miles-column'>
+                  <p>{car.miles}</p>
+                  <p>{car.awd}</p>
+                  <p>{car.type}</p>
+                </div>
+                <div className='miles-column'>
+                  <p>{car.fuelType}</p>
+                  <p>{car.transmission}</p>
+                  <p>
+                    Warranty: {car.warranty ? car.warranty : 'No warranty'}
+                  </p>
+                </div>
+
+              </div>
               <div className='price_seller'>
                 <span className='price'>{car.price}</span>
                 <Link to="/appointment" className='buy_btn'>

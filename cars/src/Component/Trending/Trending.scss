@@ -144,9 +144,9 @@
             cursor: pointer;
             
             &:hover {
-              background-color: var(--secondaryColor);
-              color: var(--blackColor);
-            }
+                          
+              color: var(--primaryColor);
+          }
           }
         }
       }

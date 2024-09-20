@@ -9,8 +9,9 @@
 .seller{
     background: var(--greyColor);
     .secContainer{
-      
-
+        .secHeading{
+            margin-top: 3rem;
+        }
         .sellerContainer{
         cursor: pointer;
             .singleSeller{
@@ -51,6 +52,7 @@
                         height: 50px;
                 
                     }
+             
                 }
             }
         }

@@ -53,15 +53,24 @@
 }
 
 .miles {
-  color: var(--blackColor);
-  opacity: 0.7;
-  font-size: 14px;
+  display: flex;
+  justify-content: space-between; /* Space between columns */
+  margin-left: 10px;
+  width: 100%; /* Full width of the container */
 }
 
-.AWD {
-  padding: 0rem ;
-  color: var(--blackColor);
-  font-weight: 600;
+.miles-column {
+  display: flex;
+  flex-direction: column; /* Stack items vertically in each column */
+  gap: 0px; /* Optional: Add space between each item inside the column */
+  width: 50%; /* Optional: Adjust column width to fit within container */
+}
+
+.miles p{
+  color: var(--blackcolor);
+  opacity: .9;
+  font-size: 14px;
+  line-height: 8px;
 }
 
 .price_seller {
@@ -73,8 +82,8 @@
 }
 
 .price {
-  background: var(--primaryColor);
-  color: var(--secondaryColor);
+  background: var(--secondaryColor);
+                        color: var(--primaryColor);
   padding: 0.5rem;
   border-radius: 3px;
   font-weight: 600;
@@ -96,8 +105,8 @@
 }
 
 .buy_btn:hover {
-  background: var(--primaryColor);
-  color: var(--whiteColor);
+  
+  color: var(--primaryColor);
 }
 
 .resultItem:hover {

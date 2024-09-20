@@ -126,8 +126,7 @@
   cursor: pointer;
 }
 .trending .secContainer .carContainer .singleCar .price_seller .buy_btn:hover {
-  background-color: var(--secondaryColor);
-  color: var(--blackColor);
+  color: var(--primaryColor);
 }
 .trending .secContainer .carContainer:hover {
   transform: translateY(-10px);
