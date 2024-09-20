@@ -93,11 +93,11 @@
 }
 @media screen and (max-width: 480px) {
   .search {
-    padding: 1rem 0;
+    padding: 0rem 0;
   }
   .search .title {
     font-size: 20px;
-    padding: 1rem 0;
+    padding: 0rem 0;
   }
   .search .searchDiv {
     display: flex;
