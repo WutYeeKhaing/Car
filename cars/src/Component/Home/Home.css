@@ -1,14 +1,18 @@
 :root {
   --primaryColor: rgb(64, 64, 141);
-  --secondaryColor:rgb(164, 198, 248);
-  --textColor:rgb(38, 38, 38);
-  --greyColor:rgb(218, 213, 213);
-  --whitecolor:white;
-  --blackcolor:rgb(52, 51, 51);
+  --secondaryColor: rgb(164, 198, 248);
+  --textColor: rgb(38, 38, 38);
+  --greyColor: rgb(218, 213, 213);
+  --whiteColor: white;
+  --blackColor: rgb(52, 51, 51);
 }
 
 .home {
   padding-top: 8rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
 }
 
 .secContainer {
@@ -17,43 +21,119 @@
   display: grid;
   gap: 3rem;
 }
-.secContainer .hometext .homeSpan {
+
+.hometext .homeSpan {
   color: var(--blackColor);
   font-size: 20px;
   font-weight: 600;
 }
-.secContainer .hometext .homeH {
+.hometext .homeH {
   color: var(--primaryColor);
   font-size: 30px;
   font-weight: 700;
 }
-.secContainer .hometext .btns {
-  gap: 2rem;
+.hometext .btns {
+  display: flex;
+  gap: 1.5rem;
   justify-content: center;
 }
-.secContainer .hometext .btn {
-  padding: 10px 15px;
+.hometext .btn {
+  padding: 8px 12px;
   border-radius: 3px;
   font-weight: 600;
-  margin-top: 0.8rem;
+  margin-top: 0;
+  cursor: pointer;
+  transition: background 0.3s ease, color 0.3s ease;
 }
-.secContainer .hometext .btn:hover {
+.hometext .btn:hover {
   background: var(--secondaryColor);
   color: var(--primaryColor);
 }
-.secContainer .hometext .btn:nth-child(1) {
-  background: var(--greyColor);
-  color: var(--blackColor);
+.hometext .btn.primary {
+  background-color: var(--primaryColor);
+  color: var(--whiteColor);
 }
-.secContainer .hometext .btn:nth-child(1):hover {
+.hometext .btn.primary:hover {
   background-color: var(--secondaryColor);
   color: var(--primaryColor);
 }
-.secContainer .homeimg {
-  margin-top: 30px;
-  width: auto;
+.hometext .btn.grey {
+  background-color: var(--greyColor);
+  color: var(--blackColor);
+}
+.hometext .btn.grey:hover {
+  background-color: var(--secondaryColor);
+  color: var(--primaryColor);
 }
 
-.home .secContainer .hometext .homeSpan {
-  font-size: 20px;
+.homeimg {
+  margin-top: 30px;
+  width: 100%; /* Ensure full width on smaller screens */
+  max-width: 1200px; /* Limit the max width on larger screens */
+  height: auto; /* Maintain aspect ratio */
+  margin-left: auto;
+  margin-right: auto;
+  transition: width 0.3s ease, max-width 0.3s ease;
+  animation: zoomOut 10s ease-out; /* Loop the animation infinitely */
+}
+
+@keyframes zoomOut {
+  0% {
+    transform: scale(1); /* Normal size */
+  }
+  50% {
+    transform: scale(1.1); /* Zoom out slightly */
+    animation-timing-function: ease-out; /* Apply ease-out only for zoom out */
+  }
+  100% {
+    transform: scale(1); /* Back to normal size instantly */
+  }
+}
+@media screen and (min-width: 520px) {
+  .home .secContainer .hometext .homeSpan {
+    font-size: 20px;
+  }
+  .home .secContainer .hometext .homeH {
+    font-size: 35px;
+  }
+  .home .secContainer .hometext .btns .btn {
+    font-size: 14px;
+  }
+  .home .secContainer .homeimg {
+    max-width: 100%;
+  }
+}
+@media screen and (min-width: 770px) {
+  .home {
+    padding-top: 11rem;
+  }
+  .home .secContainer {
+    gap: 2rem;
+  }
+  .home .secContainer .hometext .homeSpan {
+    font-size: 22px;
+  }
+  .home .secContainer .hometext .homeH {
+    font-size: 40px;
+  }
+  .home .secContainer .hometext .homeimg {
+    max-width: 90%; /* Slightly larger on medium screens */
+  }
+}
+@media screen and (min-width: 996px) {
+  .home .secContainer {
+    gap: 2rem;
+  }
+  .home .secContainer .hometext .homeSpan {
+    font-size: 26px;
+  }
+  .home .secContainer .hometext .homeH {
+    font-size: 46px;
+  }
+  .home .secContainer .hometext .btns .btn {
+    font-size: 18px;
+  }
+  .home .homeimg {
+    max-width: 1500px; /* Make the image larger on very large screens */
+  }
 }/*# sourceMappingURL=Home.css.map */

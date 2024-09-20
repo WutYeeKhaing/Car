@@ -69,14 +69,22 @@
   padding-top: 10px;
 }
 .auction .secContainer .carContainer .singleCar .miles {
-  color: var(--blackcolor);
-  opacity: 0.7;
-  font-size: 14px;
+  display: flex;
+  justify-content: space-between; /* Space between columns */
+  margin-left: 10px;
+  width: 100%; /* Full width of the container */
 }
-.auction .secContainer .carContainer .singleCar .AWD {
-  padding: 1rem 0;
+.auction .secContainer .carContainer .singleCar .miles-column {
+  display: flex;
+  flex-direction: column; /* Stack items vertically in each column */
+  gap: 0px; /* Optional: Add space between each item inside the column */
+  width: 50%; /* Optional: Adjust column width to fit within container */
+}
+.auction .secContainer .carContainer .singleCar .miles p {
   color: var(--blackcolor);
-  font-weight: 600;
+  opacity: 0.9;
+  font-size: 14px;
+  line-height: 8px;
 }
 .auction .secContainer .carContainer .singleCar .price_seller {
   gap: 1rem;

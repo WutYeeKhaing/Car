@@ -72,14 +72,26 @@
                 }
 
                 .miles {
-                    color: var(--blackColor);
-                    opacity: 0.8;
-                    font-size: 0.9rem;
-                    padding:  0 0.5rem;
-                }
-                .AWD{
-                    padding:  0 0.5rem;
-                }
+                    display: flex;
+                    justify-content: space-between; /* Space between columns */
+                    margin-left: 10px;
+                    width: 100%; /* Full width of the container */
+                  }
+                  
+                  .miles-column {
+                    display: flex;
+                    flex-direction: column; /* Stack items vertically in each column */
+                    gap: 0px; /* Optional: Add space between each item inside the column */
+                    width: 50%; /* Optional: Adjust column width to fit within container */
+                  }
+                  
+                  .miles p{
+                    color: var(--blackcolor);
+                    opacity: .9;
+                    font-size: 14px;
+                    line-height: 8px;
+        
+                  }
                 .price_seller {
                     display: flex;
                     justify-content: space-between;

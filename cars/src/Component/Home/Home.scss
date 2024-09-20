@@ -1,128 +1,181 @@
 :root {
     --primaryColor: rgb(64, 64, 141);
-    --secondaryColor:rgb(164, 198, 248);
-    --textColor:rgb(38, 38, 38);
-    --greyColor:rgb(218, 213, 213);
-    --whitecolor:white;
-    --blackcolor:rgb(52, 51, 51);
-  }
-.home{
-    padding-top: 8rem;
+    --secondaryColor: rgb(164, 198, 248);
+    --textColor: rgb(38, 38, 38);
+    --greyColor: rgb(218, 213, 213);
+    --whiteColor: white;
+    --blackColor: rgb(52, 51, 51);
 }
-.secContainer{
+
+.home {
+    padding-top: 8rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.secContainer {
     padding: 0 1.5rem;
     text-align: center;
     display: grid;
     gap: 3rem;
-    .hometext{
-        .homeSpan{
+}
+
+.hometext {
+    .homeSpan {
         color: var(--blackColor);
         font-size: 20px;
         font-weight: 600;
-        
-        }
-        .homeH{
+    }
+
+    .homeH {
+        color: var(--primaryColor);
+        font-size: 30px;
+        font-weight: 700;
+    }
+
+    .btns {
+        display: flex;
+        gap: 1.5rem;
+        justify-content: center;
+    }
+
+    .btn {
+        padding: 8px 12px;
+        border-radius: 3px;
+        font-weight: 600;
+        margin-top: 0;
+        cursor: pointer;
+        transition: background 0.3s ease, color 0.3s ease;
+
+        &:hover {
+            background: var(--secondaryColor);
             color: var(--primaryColor);
-            font-size: 30px;
-            font-weight: 700;
         }
-        .btns{
-            gap:2rem;
-            justify-content: center;
-        }
-        .btn{
-            padding: 10px 15px;
-            border-radius:3px;
-            font-weight:600;
-            margin-top:1rem;
-            &:hover{
-                background: var(--secondaryColor);
-                color:var(--primaryColor);
-            }
+    }
 
+    .btn.primary {
+        background-color: var(--primaryColor);
+        color: var(--whiteColor);
+
+        &:hover {
+            background-color: var(--secondaryColor);
+            color: var(--primaryColor);
         }
-        .btn:nth-child(1){
-            background-color:var(-Color);  
-            color:var(--primaryColor); 
-            font-weight:600;  
-            &:hover{
-                background-color: var(--secondaryColor);
-                color:var(--primaryColor);
-            }
+    }
+
+    .btn.grey {
+        background-color: var(--greyColor);
+        color: var(--blackColor);
+
+        &:hover {
+            background-color: var(--secondaryColor);
+            color: var(--primaryColor);
+        }
+    }
+}
+
+.homeimg {
+    margin-top: 30px;
+    width: 100%; /* Ensure full width on smaller screens */
+    max-width: 1200px; /* Limit the max width on larger screens */
+    height: auto; /* Maintain aspect ratio */
     
-        }
+    margin-left: auto;
+    margin-right: auto;
+    transition: width 0.3s ease, max-width 0.3s ease;
+    animation: zoomOut 10s ease-out ;/* Loop the animation infinitely */
+}
+@keyframes zoomOut {
+    0% {
+        transform: scale(1); /* Normal size */
     }
-    .homeimg{
-        margin-top: 30px;
-        width: auto;
+    50% {
+        transform: scale(1.1); /* Zoom out slightly */
+        animation-timing-function: ease-out; /* Apply ease-out only for zoom out */
+    }
+    100% {
+        transform: scale(1); /* Back to normal size instantly */
     }
 }
-@media screen and(min-width:520px) {
-    .home{
-      .secContainer{
-        .hometext{
-            .homeSpan{
-                font-size: 20px;
-            }
-            .homeH{
-                font-size: 35px;
-            }
-            .btns{
-                .btn{
-                    font-size: 14px;
+@media screen and (min-width: 520px) {
+    .home {
+        .secContainer {
+            .hometext {
+                .homeSpan {
+                    font-size: 20px;
+                }
+
+                .homeH {
+                    font-size: 35px;
+                }
+
+                .btns {
+                    .btn {
+                        font-size: 14px;
+                    }
                 }
             }
-        }
-    }
-    .homeimg{
-        max-width:75%;
-        transition: .3s ease;
-    }
-  }
-}
-@media screen and(min-width:770px) {
-    .home{
-        padding-top: 10rem;
-        .secContainer{
-            gap:2.5rem;
-          .hometext{
-              .homeSpan{
-                  font-size: 22px;
-              }
-              .homeH{
-                  font-size: 40px;
-              }
-              .btns{
-                margin-top: 1rem;
-              }
-          }
-      }
-    }
-}
-@media screen and(min-width:996px) {
-    .home{
-        padding-top: 12rem;
-        .secContainer{
-            gap:3rem;
-          .hometext{
-              .homeSpan{
-                  font-size: 28px;
-              }
-              .homeH{
-                  font-size: 53px;
-              }
-              .btns{
-                .btn{
-                    font-size: 18px;
-                    padding: 1rem 2rem;
-                }
-              }
-          }
-        }
-        .homeimg{
-            width: 50%;
+
+            .homeimg {
+                max-width: 100%;
+            }
         }
     }
 }
 
- 
+@media screen and (min-width: 770px) {
+    .home {
+        padding-top: 11rem;
+
+        .secContainer {
+            gap: 2rem;
+
+            .hometext {
+                .homeSpan {
+                    font-size: 22px;
+                }
+
+                .homeH {
+                    font-size: 40px;
+                }
+
+                .homeimg {
+                    max-width: 90%; /* Slightly larger on medium screens */
+                }
+            }
+        }
+    }
+}
+
+@media screen and (min-width: 996px) {
+    .home {
+       
+
+        .secContainer {
+            gap: 2rem;
+
+            .hometext {
+                .homeSpan {
+                    font-size: 26px;
+                }
+
+                .homeH {
+                    font-size: 46px;
+                }
+
+                .btns {
+                    .btn {
+                        font-size: 18px;
+                       
+                    }
+                }
+            }
+        }
+
+        .homeimg {
+            max-width: 1500px; /* Make the image larger on very large screens */
+        }
+    }
+}

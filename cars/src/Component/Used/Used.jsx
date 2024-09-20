@@ -13,47 +13,80 @@ import { Link } from 'react-router-dom';
 const carData = [
   {
     imgSrc: cut,
-    title: 'Used Mercedes-Benz G63',
-    miles: '14563 Miles',
-    awd: 'AWD 4-Cylinder Turbo',
-    price: '$50,890',
+    title: 'Used MG ZS EV 2022',
+    miles: '15000 Miles',
+    price: '$30,890',
+    awd: 'AWD',  // All-Wheel Drive
+    type: 'SUV',
+    transmission: 'Automatic',
+    fuelType: 'Electric',
+    warranty: '2 years',
   },
   {
     imgSrc: cut1,
-    title: 'Used Porsche 911',
-    miles: '14563 Miles',
-    awd: 'AWD 4-Cylinder Turbo',
-    price: '$40,000',
+    title: 'Used Porsche 911 2022',
+    miles: '14000 Miles',
+    price: '$80,000',
+    awd: 'RWD',  // Rear-Wheel Drive
+    type: 'Coupe',
+    transmission: 'Automatic',
+    fuelType: 'Gasoline',
+    warranty: '6 months',
   },
   {
     imgSrc: cut2,
-    title: 'Used Nissan white',
+    title: 'Used Volvo XC 40 2021',
     miles: '1463 Miles',
-    price: '$99,090',
-    awd: 'AWD 4-Cylinder Turbo',
+    price: '$49,090',
+    awd: 'AWD',  // All-Wheel Drive
+    type: 'SUV',
+    transmission: 'Automatic',
+    fuelType: 'Hybrid',
+    // No warranty information
   },
   {
     imgSrc: cut3,
-    title: 'Used Toyota Truck',
+    title: 'Used Toyota Land Cruiser Prado 2024',
     miles: '14563 Miles',
-    awd: 'AWD 4-Cylinder Turbo',
-    price: '$37,000',
+    price: '$117,000',
+    awd: 'AWD',  // All-Wheel Drive
+    type: 'SUV',
+    transmission: 'Automatic',
+    fuelType: 'Diesel',
+    warranty: '1 year',
   },
   {
     imgSrc: cut4,
-    title: 'Used Sport Car',
-    miles: '80000 Miles',
-    awd: 'AWD 4-Cylinder Turbo',
-    price: '$38,000',
+    title: 'Used Porsche 911 2023',
+    miles: '10000 Miles',
+    price: '$98,000',
+    awd: 'RWD',  // Rear-Wheel Drive
+    type: 'Coupe',
+    transmission: 'Manual',
+    fuelType: 'Gasoline',
   },
   {
     imgSrc: cut5,
-    title: 'Used Range Rover',
-    miles: '12000 Miles',
-    price: '$60,000',
-    awd: 'AWD 4-Cylinder Turbo',
+    title: 'Used Land Rover Range Rover 2016',
+    miles: '112000 Miles',
+    price: '$40,000',
+    awd: 'AWD',  // All-Wheel Drive
+    type: 'SUV',
+    transmission: 'Automatic',
+    fuelType: 'Diesel',
+  },
+  {
+    imgSrc: cut2,
+    title: 'Toyota Yaris 2023',
+    miles: '10063 Miles',
+    price: '$37,800',
+    awd: 'FWD',  // Front-Wheel Drive
+    type: 'Hatchback',
+    transmission: 'Automatic',
+    fuelType: 'Hybrid',
   },
 ];
+
 
 const Used = () => {
   const [startIndex, setStartIndex] = useState(0);
@@ -66,17 +99,26 @@ const Used = () => {
     });
   }, []);
 
+
   const handlePrev = () => {
-    if (startIndex > 0) {
-      setStartIndex(startIndex - 1);
-    }
+    setStartIndex((prevIndex) =>
+      (prevIndex - 1 + carData.length) % carData.length
+    );
   };
 
   const handleNext = () => {
-    if (startIndex < carData.length - visibleItems) {
-      setStartIndex(startIndex + 1);
-    }
+    setStartIndex((prevIndex) =>
+      (prevIndex + 1) % carData.length
+    );
   };
+  const getVisibleCars = () => {
+    let visibleCars = [];
+    for (let i = 0; i < visibleItems; i++) {
+      visibleCars.push(carData[(startIndex + i) % carData.length]);
+    }
+    return visibleCars;
+  };
+
 
   return (
     <div className='auction section'>
@@ -89,14 +131,28 @@ const Used = () => {
           </div>
         </div>
         <div className='carContainer' ref={containerRef} >
-          {carData.slice(startIndex, startIndex + visibleItems).map((car, index) => (
-            <div key={index} className='singleCar'  data-aos={index < visibleItems / 2 ? 'fade-right' : 'fade-left'} data-aos-delay={index * 100}>
+          {getVisibleCars().map((car, index) => (
+            <div key={index} className='singleCar' data-aos={index < visibleItems / 2 ? 'fade-right' : 'fade-left'} data-aos-delay={index * 100}>
               <div className='imgDiv'>
                 <img src={car.imgSrc} alt={`Car ${index}`} />
               </div>
               <h5 className='carTitle'>{car.title}</h5>
-              <span className='AWD'>{car.awd}</span>
-              <span className='miles'>{car.miles}</span>
+
+              <div className='miles'>
+                <div className='miles-column'>
+                  <p>{car.miles}</p>
+                  <p>{car.awd}</p>
+                  <p>{car.type}</p>
+                </div>
+                <div className='miles-column'>
+                  <p>{car.fuelType}</p>
+                  <p>{car.transmission}</p>
+                  <p>
+                    Warranty: {car.warranty ? car.warranty : 'No warranty'}
+                  </p>
+                </div>
+
+              </div>
               <div className='price_seller flex'>
                 <span className='price'>{car.price}</span>
                 <Link to="/appointment" className='buy_btn'>

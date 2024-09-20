@@ -17,7 +17,7 @@ import 'aos/dist/aos.css';
 const reviewData = [
   {
     imgSrc: Car1,
-    reviewTitle: 'Ferrari',
+    reviewTitle: 'Ferrari LaFerrari 2014',
     reviewText: "Thrilling performance and stylish design. Perfect for driving enthusiasts.",
     reviewerImg: Rita,
     reviewerName: 'Rita Kee',
@@ -26,7 +26,7 @@ const reviewData = [
   },
   {
     imgSrc: Car5,
-    reviewTitle: 'Afeela White',
+    reviewTitle: 'Afeela',
     reviewText: "Great for daily commutes with a spacious interior and high fuel efficiency.",
     reviewerImg: seller1,
     reviewerName: 'Robin',
@@ -35,8 +35,8 @@ const reviewData = [
   },
   {
     imgSrc: Car2,
-    reviewTitle: 'BMW',
-    reviewText: "Luxurious and tech-savvy. Ideal for those who seek a premium driving experience.",
+    reviewTitle: 'MERCEDES-BENZ 300SE 1967',
+    reviewText: "Luxurious and tech-savvy. Ideal for a premium driving experience." ,
     reviewerImg: seller2,
     reviewerName: 'Felix',
     reviewerRole: 'Assistant',
@@ -44,7 +44,7 @@ const reviewData = [
   },
   {
     imgSrc: Car4,
-    reviewTitle: 'Singer',
+    reviewTitle: 'Porsche 911 1990',
     reviewText: "Classic design with reliable performance. Great value for those who appreciate vintage style.",
     reviewerImg: seller3,
     reviewerName: 'Nicolas',
@@ -53,7 +53,7 @@ const reviewData = [
   },
   {
     imgSrc: Car3,
-    reviewTitle: 'BMW',
+    reviewTitle: 'New Mercedes-Benz GLC',
     reviewText: "Smooth drive with advanced features. A top choice for car enthusiasts.",
     reviewerImg: seller4,
     reviewerName: 'YuRi',
@@ -74,16 +74,25 @@ const Review = () => {
     });
   }, []);
 
+ 
   const handlePrev = () => {
-    if (startIndex > 0) {
-      setStartIndex(startIndex - 1);
-    }
+    setStartIndex((prevIndex) => 
+      (prevIndex - 1 + reviewData.length) % reviewData.length
+    );
   };
 
   const handleNext = () => {
-    if (startIndex < reviewData.length - visibleItems) {
-      setStartIndex(startIndex + 1);
+    setStartIndex((prevIndex) => 
+      (prevIndex + 1) % reviewData.length
+    );
+  };
+
+  const getVisibleReviews = () => {
+    let visibleReviews = [];
+    for (let i = 0; i < visibleItems; i++) {
+      visibleReviews.push(reviewData[(startIndex + i) % reviewData.length]);
     }
+    return visibleReviews;
   };
 
   return (
@@ -97,7 +106,7 @@ const Review = () => {
           </div>
         </div>
         <div className='reviewContainer grid' ref={containerRef}>
-          {reviewData.slice(startIndex, startIndex + visibleItems).map((review, index) => (
+        {getVisibleReviews().map((review, index) => (
             <div key={index} className='singleReview grid' data-aos="fade-up" data-aos-delay={index * 100}>
               <div className='imgDiv'>
                 <img src={review.imgSrc} alt='Car'/>

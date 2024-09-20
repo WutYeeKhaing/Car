@@ -30,7 +30,6 @@ const mockResults = [
     imgSrc: cut1,  // Add image source
     title: 'Used Model S 2022',
     miles: '14,563 Miles',
-    awd: 'AWD 4-Cylinder Turbo',
     price: '$80,000',
   },
   {
@@ -85,7 +84,6 @@ const mockResults = [
     title: 'Toyota Yaris',
     year: '2020',
     miles: '20,063 Miles',
-    awd: 'AWD 4-Cylinder Turbo',
     price: '$57,800',
   },
   {

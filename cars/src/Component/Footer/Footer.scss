@@ -57,7 +57,8 @@
         font-size: 14px;
         font-weight: 600;
         color: var(--greyColor);
-  
+       display: flex;
+       justify-content: space-between;
         blockquote {
           color: var(--blackColor);
           margin: 0;

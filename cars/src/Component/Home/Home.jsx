@@ -32,10 +32,10 @@ const Home = () => {
           Toyota YARIS 2023
           </h1>
           <div className='btns flex'>
-          <button data-aos='fade-right' className='btn' onClick={() => handleMoreDetails(1)}>
+          <button data-aos='fade-right' className='btn primary' onClick={() => handleMoreDetails(1)}>
         More Details
       </button>
-      <button data-aos='fade-left' className='btn primaryBtn' onClick={handleTestDrive}>
+      <button data-aos='fade-left' className='btn grey' onClick={handleTestDrive}>
         Test Drive
       </button>
           </div>

@@ -14,7 +14,8 @@
     
   .secContainer {
     padding: 3rem 2rem; /* Ensure padding matches auction */
-    overflow: hidden;
+    overflow: visible; /* Change this to visible to allow hover effect to be seen */
+    position: relative;
     .secHeading {
       display: flex;
       justify-content: space-between;
@@ -47,13 +48,13 @@
     }
     
     .carContainer {
-        margin-top: 1rem;
+        margin-top: 2rem;
       display: flex;
       overflow-x: auto;
       flex-direction: column;
       gap: 2rem;
-      scroll-behavior: smooth;
-      transition: transform 0.3s ease;
+     
+     
       
       .singleCar {
         display: flex;
@@ -64,21 +65,23 @@
         
         overflow: hidden;
         text-align: left;
-        min-height: 360px;
+        min-height: 100%;
+        max-height: 1500px;
         border: 5px solid transparent;
         
         .imgDiv {
-          max-height: 500px;
+
+          height: 100%;
           width: 100%;
           overflow: hidden;
           border-radius: 10px;
           
           img {
-             max-height: 550px;
-             height: 100%;
             width: 100%;
-            min-width: 100%;
-            object-fit: cover;
+            height: 100%;
+          
+            object-fit: contain; /* Ensures the image covers the container */
+            object-position: center; 
           }
         }
         
@@ -86,18 +89,29 @@
           color: var(--blackColor);
           font-size: 18px;
           padding-top: 0px;
+          padding-left: 10px;
         }
         
         .miles {
-          color: var(--blackColor);
-          opacity: 0.7;
-          font-size: 14px;
+          display: flex;
+          justify-content: space-between; /* Space between columns */
+          margin-left: 10px;
+          width: 100%; /* Full width of the container */
         }
         
-        .AWD {
-          padding: 0rem 0rem;
-          color: var(--blackColor);
-          font-weight: 600;
+        .miles-column {
+          display: flex;
+          flex-direction: column; /* Stack items vertically in each column */
+          gap: 0px; /* Optional: Add space between each item inside the column */
+          width: 50%; /* Optional: Adjust column width to fit within container */
+        }
+        
+        .miles p{
+          color: var(--blackcolor);
+          opacity: .9;
+          font-size: 14px;
+          line-height: 8px;
+
         }
         
         .price_seller {
@@ -135,12 +149,13 @@
             }
           }
         }
-        
-        &:hover {
-          transform: translateY(-2px);
-          box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.2);
-        }
       }
+        &:hover {
+          transform: translateY(- 10px);
+          background: var(--greyColor);
+          border-radius: 10px;
+        }
+      
       
       .singleActive {
         background: var(--greyColor);
@@ -168,7 +183,9 @@
       .carContainer {
         .singleCar {
           .imgDiv {
-            height: 600px;
+            max-height: 1800px;
+          
+
           }
         }
       }
@@ -182,7 +199,7 @@
       .carContainer {
         .singleCar {
           .imgDiv {
-            height: 550px;
+            max-height: 2000px;
           }
         }
       }

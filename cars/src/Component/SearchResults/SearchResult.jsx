@@ -25,7 +25,7 @@ const SearchResults = ({ results, hasSearched }) => {
             </div>
             <div className='resultDetails'>
               <h5 className='carTitle'>{car.title}</h5>
-              <span className='AWD'>{car.awd}</span>
+            
               <span className='miles'>{car.miles}</span>
               <div className='price_seller'>
                 <span className='price'>{car.price}</span>

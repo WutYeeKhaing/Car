@@ -53,8 +53,7 @@ const Navbar = () => {
       <IoIosCloseCircle className="icon closeIcon" onClick={removeNavbar}/>
     </div>
     <div className='signUp flex'>
-      <div className='text'><Link to='./login'>Sign Up </Link>
-      </div>
+    
         <TbGridDots className='icon toggleNavbarIcon' onClick={showNavbar}/>
         
     </div>
