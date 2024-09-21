@@ -2,11 +2,18 @@ import React, { useState } from 'react';
 
 const ForgetPassword = () => {
   const [email, setEmail] = useState('');
+  const [message, setMessage] = useState('');
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    // Logic to handle password reset request goes here (e.g., API call)
-    alert(`Password reset link sent to ${email}`);
+    const users = JSON.parse(localStorage.getItem('users')) || [];
+    const userExists = users.some((user) => user.email === email);
+
+    if (userExists) {
+      setMessage(`Password reset link sent to ${email}`);
+    } else {
+      setMessage('Email not found. Please sign up first.');
+    }
   };
 
   return (
@@ -24,6 +31,9 @@ const ForgetPassword = () => {
           />
         </div>
         <button type="submit">Send Reset Link</button>
+
+        {/* Message after submission */}
+        {message && <p className="message">{message}</p>}
       </form>
     </div>
   );
