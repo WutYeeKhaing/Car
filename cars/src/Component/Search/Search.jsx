@@ -3,7 +3,6 @@ import './Search.css';
 import { AiOutlineSearch } from 'react-icons/ai';
 import Aos from 'aos';
 import 'aos/dist/aos.css';
-import axios from 'axios'; // Import axios
 import SearchResults from '../SearchResults/SearchResult';
 import logo from '../../Assets/realo.png'
 import cut from '../../Assets/cut6.png';
