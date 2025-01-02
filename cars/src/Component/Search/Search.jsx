@@ -285,7 +285,7 @@ const Search = () => {
 
   return (
     <div className='search '>
-      <div className='secContainer'>
+      
         <h3 data-aos='fade-up' className='title'>
           Which Kind Of Vehicle Are You Looking For?
         </h3>
@@ -366,7 +366,7 @@ const Search = () => {
         {/* Search Results */}
         <SearchResults results={results} hasSearched={hasSearched} />
       </div>
-    </div>
+ 
   );
 };
 
