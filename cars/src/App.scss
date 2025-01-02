@@ -1,4 +1,5 @@
-@import url('https://fonts.googleapis.com/css2?family=Titillium+Web:wght@200;600;700&display=swap');
+
+  @import url('https://fonts.googleapis.com/css2?family=Titillium+Web:wght@200;600;700&display=swap');
 
 
 *{
@@ -103,34 +104,11 @@ img{
 ::-webkit-scrollbar{
     width: 10px;
     background-color: var(--greyColor);
-    &-thumb{
-        background: var(--secondaryColor);
-        border-radius: 10px;
-    }
-    &-button{
-        background-color: var(--greyColor); /* Background for the button area */
-        height: 12px; /* Adjust the height as needed */
-        &:start {
-            background-color: #b0b0b0;
-        }
-        &:end {
-            background-color: #c0c0c0;
-        }
-        &:hover {
-            background-color: #e0e0e0;
-        }
-         &:single-button {
-           background-color: #e0e0e0;
-        }
-    }
-    &-corner {
-            background-color: var(--greyColor); /* Background for the corner */
-    }
-    &-thumb:vertical{
-        background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle fill="#fff" cx="50" cy="50" r="40"/></svg>');
-    }
 }
-
+::-webkit-scrollbar-thumb{
+    background: var(--secondaryColor);
+    border-radius: 10px;
+}
 @media screen and (max-width: 480px) {
 
     .section{
